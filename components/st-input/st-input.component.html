@@ -9,7 +9,7 @@
       </label>
       <input (focus)="onFocus($event)" (focusout)="onFocusOut($event)" (blur)="onFocusOut($event)" [formControl]="internalControl"
          class="remove-default-style" [ngClass]="{disabled: isDisabled}"
-         [placeholder]="placeholder" [name]="name" [attr.type]="internalType" [attr.maxlength]="maxLength" [attr.id]="qaTag">
+         [placeholder]="placeholder" [name]="name" [attr.type]="internalType" [attr.maxlength]="maxlength" [attr.id]="qaTag">
 
       <span class="bar" [ngClass]="getBarType()"></span>
    </div>

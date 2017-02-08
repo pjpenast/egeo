@@ -1,7 +1,7 @@
 import { Renderer, ElementRef, ChangeDetectorRef } from '@angular/core';
 
 export abstract class EventWindowManager {
-   protected isActive: boolean;
+   public isActive: boolean;
    private globalListener: Function;
    private forceClose: Function;
 

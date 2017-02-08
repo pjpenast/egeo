@@ -7,9 +7,9 @@ import { DataList, FieldsMetadata } from '../st-list.model';
    templateUrl: './st-list-body.component.html',
    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GosecListBodyComponent<T> {
+export class GosecListBodyComponent {
    @Input() headerList: Array<FieldsMetadata>;
-   @Input() data: DataList<T>;
+   @Input() data: DataList<any>;
 
    @Output() openDetail: EventEmitter<string> = new EventEmitter<string>();
    @Output() clickAction: EventEmitter<string> = new EventEmitter<string>();

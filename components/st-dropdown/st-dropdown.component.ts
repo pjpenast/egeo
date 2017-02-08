@@ -24,7 +24,7 @@ import { StDropDownMenuItem, StDropDownMenuGroup } from '../st-dropdown-menu/st-
    styleUrls: ['st-dropdown.component.scss'],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StDropdownComponent extends EventWindowManager implements AfterViewInit, OnDestroy, OnInit  {
+export class StDropdownComponent extends EventWindowManager implements AfterViewInit, OnDestroy, OnInit {
 
    @Input() button: string;
    @Input() active: boolean;
@@ -38,7 +38,7 @@ export class StDropdownComponent extends EventWindowManager implements AfterView
    @ViewChild('buttonId') buttonElement: ElementRef;
    @ViewChild('menuId') menuElement: ElementRef;
 
-   private widthMenu: string;
+   widthMenu: string;
 
    constructor(
       private renderer: Renderer,
@@ -68,16 +68,17 @@ export class StDropdownComponent extends EventWindowManager implements AfterView
       this.closeElement();
    };
 
-   public changeOption(event: any): void {
+   changeOption(event: any): void {
       this.active = !this.active;
 
-      if (!this.default)
-      this.button = event.label;
+      if (!this.default) {
+         this.button = event.label;
+      }
       this.change.emit(event);
       this.closeElement();
    };
 
-   private onClickEvent(event: any): void {
+   onClickEvent(event: any): void {
       this.openElement();
       this.click.emit(true);
    };

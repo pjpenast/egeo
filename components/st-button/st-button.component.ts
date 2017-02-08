@@ -21,7 +21,7 @@ export class StButtonComponent {
 
    constructor() {}
 
-   private getButtonTypeClass(): string {
+   public getButtonTypeClass(): string {
       let cssClass: string;
 
       if (this.typeClass) {
@@ -39,7 +39,7 @@ export class StButtonComponent {
       return cssClass;
    }
 
-   private onClickEvent(event: any): void {
+   public onClickEvent(event: any): void {
      this.onClick.emit(event);
    }
 }

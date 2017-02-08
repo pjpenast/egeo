@@ -8,8 +8,8 @@ import { getColPercent } from '../utils';
    templateUrl: './st-list-row.component.html',
    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GosecListRowComponent<T> {
-   @Input() rowData: Model<T>;
+export class GosecListRowComponent {
+   @Input() rowData: Model<any>;
    @Input() metadata: Array<FieldsMetadata>;
    @Input() hasDetail: boolean = true;
    @Input() detailText: string = '';

@@ -26,7 +26,7 @@
       "web/**/*.ts"
    ],
    "angularCompilerOptions": {
-      "genDir": "./compiled",
+      "genDir": "./temp/compiled",
       "skipMetadataEmit": true
    },
    "awesomeTypescriptLoaderOptions": {

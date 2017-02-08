@@ -17,9 +17,9 @@ export class StSearchComponent implements OnChanges, OnDestroy, OnInit {
 
    @Output() onSearch: EventEmitter<string> = new EventEmitter<string>();
 
-   private searchBox: FormControl = new FormControl();
-   private sub: Subscription | undefined = undefined;
+   searchBox: FormControl = new FormControl();
 
+   private sub: Subscription | undefined = undefined;
    private lastEmited: string | undefined = undefined;
 
    // Its necesary check null because value is any type.

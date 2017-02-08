@@ -10,10 +10,10 @@ import { Page } from './shared/st-pagination/';
    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class GosecListComponent<T> {
+export class GosecListComponent {
    // Data Fields
    @Input() metadata: Array<FieldsMetadata>;
-   @Input() data: DataList<T>;
+   @Input() data: DataList<any>;
    @Output() openDetail: EventEmitter<string> = new EventEmitter<string>();
    @Output() clickAction:  EventEmitter<string> = new EventEmitter<string>();
 

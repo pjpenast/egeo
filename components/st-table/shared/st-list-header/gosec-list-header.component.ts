@@ -8,7 +8,7 @@ import { getColPercent } from '../utils';
   templateUrl: './gosec-list-header.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GosecListHeaderComponent<T> {
+export class GosecListHeaderComponent {
   @Input() headerList: Array<FieldsMetadata>;
   @Input() order: Order;
   @Output() onOrderChange: EventEmitter<Order> = new EventEmitter<Order>();

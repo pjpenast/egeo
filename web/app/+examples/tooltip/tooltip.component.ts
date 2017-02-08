@@ -9,6 +9,8 @@ import { ApiDoc, TYPES } from '../../shared';
 
 export class TooltipComponent {
 
+   qaTag: string = 'Tooltip-example';
+
    // tslint:disable:max-line-length
    public apiDoc: ApiDoc = {
       title: 'Tooltip',

@@ -8,8 +8,8 @@ import { ApiDoc, TYPES } from '../../shared';
 })
 
 export class PageTitleComponent {
-   public apiDoc: ApiDoc;
-   private title: string = 'page title';
+   apiDoc: ApiDoc;
+   title: string = 'page title';
 
    constructor() {
       this.apiDoc = {

@@ -7,9 +7,9 @@ import { ApiDoc, TYPES } from '../../shared';
    templateUrl: './footer.component.html'
 })
 export class FooterComponent {
-   public apiDoc: ApiDoc;
-   private rightsText: string;
-   private links: Array<StFooterLink> = new Array<StFooterLink>();
+   apiDoc: ApiDoc;
+   rightsText: string;
+   links: Array<StFooterLink> = new Array<StFooterLink>();
 
    constructor() {
       this.rightsText = '© Stratio Big Data Inc. All Rights Reserved';

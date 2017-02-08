@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, SimpleChanges } from '@angular/core';
 import { Page } from './st-pagination.model';
 
 @Component({
@@ -20,7 +20,7 @@ export class GosecPaginationComponent implements OnChanges {
 
    constructor(private cd: ChangeDetectorRef) { }
 
-   ngOnChanges(): void {
+   ngOnChanges(changes: SimpleChanges): void {
       this.pagination.limit = this.checkPaginationLimit(); // Check limits
       this.size = (this.SIZE_PER_NUM * this.pagination.limit) + 'px';
       this.createArray(); // create array of pages

@@ -1,7 +1,7 @@
 import { platformBrowser } from '@angular/platform-browser';
 import { decorateModuleRef } from './app/environment';
 
-import { AppModuleNgFactory } from '../compiled/web/app/app.module.ngfactory';
+import { AppModuleNgFactory } from '../temp/compiled/web/app/app.module.ngfactory';
 
 
 export function main(): Promise<any> {

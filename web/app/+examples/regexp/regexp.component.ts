@@ -9,7 +9,7 @@ import { ApiDoc, TYPES } from '../../shared';
 
 export class RegexpComponent {
 
-   model: Object = {
+   model: ExampleModel = {
       email: 'egeo@stratio.com'
    };
 
@@ -45,3 +45,7 @@ export class RegexpComponent {
       this.forceValidations = true;
    }
 }
+
+interface ExampleModel {
+   email: string;
+};
