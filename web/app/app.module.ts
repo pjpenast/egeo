@@ -20,6 +20,10 @@ import { AppStore, State } from './app.store';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 
+export function createTranslateLoader(http: Http): TranslateStaticLoader {
+    return new TranslateStaticLoader(http, 'assets/langs', '.json');
+}
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
     EgeoModule.forRoot(),
     TranslateModule.forRoot({
       provide: TranslateLoader,
-      useFactory: (http: Http) => new TranslateStaticLoader(http, 'assets/langs', '.json'),
+      useFactory: (createTranslateLoader),
       deps: [Http]
     })
   ],

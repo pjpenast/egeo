@@ -6,6 +6,14 @@
   version "2.4.6"
   resolved "https://registry.yarnpkg.com/@angular/common/-/common-2.4.6.tgz#f005528f75d0a6deaaf636f3b779f26bda4adb07"
 
+"@angular/compiler-cli@^2.4.6":
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-2.4.6.tgz#7a34a3114b67ba9f42cb5d65eb81c9cffd54583f"
+  dependencies:
+    "@angular/tsc-wrapped" "0.5.2"
+    minimist "^1.2.0"
+    reflect-metadata "^0.1.2"
+
 "@angular/compiler@2.4.6":
   version "2.4.6"
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-2.4.6.tgz#17236b858f5730eed257d93e90bcbae45e21e0fe"
@@ -33,6 +41,12 @@
 "@angular/router@3.4.6":
   version "3.4.6"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-3.4.6.tgz#df708503f2006a090a2704f5490a9ea1ba9fc9d0"
+
+"@angular/tsc-wrapped@0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@angular/tsc-wrapped/-/tsc-wrapped-0.5.2.tgz#2eddf472c467fcb334ea94deddaaa71990c5a482"
+  dependencies:
+    tsickle "^0.2"
 
 "@angularclass/hmr-loader@3.0.2":
   version "3.0.2"
@@ -167,6 +181,10 @@ ansi-regex@^2.0.0:
 ansi-styles@^2.2.1:
   version "2.2.1"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
+
+any-promise@^1.3.0:
+  version "1.3.0"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
 
 anymatch@^1.3.0:
   version "1.3.0"
@@ -1288,7 +1306,7 @@ di@^0.0.1:
   version "0.0.1"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/di/-/di-0.0.1.tgz#806649326ceaa7caa3306d75d985ea2748ba913c"
 
-diff@^3.0.1:
+diff@^3.0.1, diff@^3.1.0:
   version "3.2.0"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
@@ -3184,6 +3202,10 @@ macaddress@^0.2.8:
   version "0.2.8"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/macaddress/-/macaddress-0.2.8.tgz#5904dc537c39ec6dbefeae902327135fa8511f12"
 
+make-error@^1.1.1:
+  version "1.2.1"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/make-error/-/make-error-1.2.1.tgz#9a6dfb4844423b9f145806728d05c6e935670e75"
+
 map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
@@ -3361,6 +3383,14 @@ negotiator@0.6.1:
 ng2-translate@5.0.0:
   version "5.0.0"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/ng2-translate/-/ng2-translate-5.0.0.tgz#0adbb510eb5007a2d6ded5f5d26888c14760aca5"
+
+ngc-webpack@1.2.0:
+  version "1.2.0"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/ngc-webpack/-/ngc-webpack-1.2.0.tgz#d4b71f733997b8ee26c669ffb77dbfae21c221ba"
+  dependencies:
+    minimist "^1.2.0"
+    reflect-metadata "^0.1.2"
+    ts-node "^2.0.0"
 
 no-case@^2.2.0:
   version "2.3.1"
@@ -3767,7 +3797,7 @@ pinkie-promise@^2.0.0:
   dependencies:
     pinkie "^2.0.0"
 
-pinkie@^2.0.0:
+pinkie@^2.0.0, pinkie@^2.0.4:
   version "2.0.4"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
@@ -4292,6 +4322,10 @@ reduce-function-call@^1.0.1:
   dependencies:
     balanced-match "^0.4.2"
 
+reflect-metadata@^0.1.2:
+  version "0.1.9"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/reflect-metadata/-/reflect-metadata-0.1.9.tgz#987238dc87a516895fe457f130435ffbd763a4d4"
+
 regenerate@^1.2.1:
   version "1.3.2"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/regenerate/-/regenerate-1.3.2.tgz#d1941c67bad437e1be76433add5b385f95b19260"
@@ -4712,7 +4746,7 @@ source-map-loader@0.1.6:
     loader-utils "~0.2.2"
     source-map "~0.1.33"
 
-source-map-support@^0.4.11:
+source-map-support@^0.4.0, source-map-support@^0.4.11, source-map-support@^0.4.2:
   version "0.4.11"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/source-map-support/-/source-map-support-0.4.11.tgz#647f939978b38535909530885303daf23279f322"
   dependencies:
@@ -4869,6 +4903,10 @@ strip-indent@^1.0.1:
   dependencies:
     get-stdin "^4.0.1"
 
+strip-json-comments@^2.0.0:
+  version "2.0.1"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
+
 strip-json-comments@~1.0.1, strip-json-comments@~1.0.4:
   version "1.0.4"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
@@ -5024,6 +5062,41 @@ tryit@^1.0.1:
   version "1.0.3"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/tryit/-/tryit-1.0.3.tgz#393be730a9446fd1ead6da59a014308f36c289cb"
 
+ts-node@^2.0.0:
+  version "2.0.0"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/ts-node/-/ts-node-2.0.0.tgz#16e4fecc949088238b4cbf1c39c9582526b66f74"
+  dependencies:
+    arrify "^1.0.0"
+    chalk "^1.1.1"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    pinkie "^2.0.4"
+    source-map-support "^0.4.0"
+    tsconfig "^5.0.2"
+    v8flags "^2.0.11"
+    xtend "^4.0.0"
+    yn "^1.2.0"
+
+tsconfig@^5.0.2:
+  version "5.0.3"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/tsconfig/-/tsconfig-5.0.3.tgz#5f4278e701800967a8fc383fd19648878f2a6e3a"
+  dependencies:
+    any-promise "^1.3.0"
+    parse-json "^2.2.0"
+    strip-bom "^2.0.0"
+    strip-json-comments "^2.0.0"
+
+tsickle@^0.2:
+  version "0.2.6"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/tsickle/-/tsickle-0.2.6.tgz#ad4abf92e74ebdf3fb5aa187ca85b02066fe1a1b"
+  dependencies:
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map "^0.5.6"
+    source-map-support "^0.4.2"
+
 tslint-loader@3.3.0:
   version "3.3.0"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/tslint-loader/-/tslint-loader-3.3.0.tgz#6e6a50fc82e85ff3d1cb53e23dd24ae9e47d91ea"
@@ -5173,6 +5246,10 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+user-home@^1.1.1:
+  version "1.1.1"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/user-home/-/user-home-1.1.1.tgz#2b5be23a32b63a7c9deb8d0f28d485724a3df190"
+
 user-home@^2.0.0:
   version "2.0.0"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/user-home/-/user-home-2.0.0.tgz#9c70bfd8169bc1dcbf48604e0f04b8b49cde9e9f"
@@ -5219,6 +5296,12 @@ uuid@^3.0.0:
 v8-lazy-parse-webpack-plugin@0.3.0:
   version "0.3.0"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/v8-lazy-parse-webpack-plugin/-/v8-lazy-parse-webpack-plugin-0.3.0.tgz#0f93cf1efbc48cbde3d6e027932e40c7a9d180d7"
+
+v8flags@^2.0.11:
+  version "2.0.11"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/v8flags/-/v8flags-2.0.11.tgz#bca8f30f0d6d60612cc2c00641e6962d42ae6881"
+  dependencies:
+    user-home "^1.1.1"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.1"
@@ -5534,6 +5617,10 @@ yauzl@2.4.1:
 yeast@0.1.2:
   version "0.1.2"
   resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+
+yn@^1.2.0:
+  version "1.2.0"
+  resolved "http://sodio.stratio.com/nexus/content/groups/publicnpm/yn/-/yn-1.2.0.tgz#d237a4c533f279b2b89d3acac2db4b8c795e4a63"
 
 zone.js@0.7.6:
   version "0.7.6"

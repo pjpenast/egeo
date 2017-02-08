@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
-import { Component2 } from './component2/component2';
+import { Component2Module } from './component2';
 import { Component1 } from './component1/component1';
 import { StModal } from 'egeo';
 
 
 @NgModule({
-   imports: [CommonModule, FormsModule],
-   declarations: [StModal, Component1, Component2],
+   imports: [CommonModule, Component2Module],
+   declarations: [StModal, Component1],
    exports: []
 })
 export class TestModule2 { }

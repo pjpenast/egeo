@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StModalService } from './st-modal';
+import { StModalService, StMessageModalComponent } from './st-modal';
 import { DECLARATIONS } from './modules';
 
 
@@ -10,7 +10,7 @@ import { DECLARATIONS } from './modules';
       CommonModule,
       ...DECLARATIONS
    ],
-   declarations: [],
+   declarations: [StMessageModalComponent],
    exports: [
       ...DECLARATIONS
    ]

@@ -35,10 +35,17 @@ import { routing } from './layout.routing';
 
 import { SharedModule } from '../shared';
 
-import { MarkdownToHtmlPipe } from 'markdown-to-html-pipe';
+import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 
 @NgModule({
-   imports: [SharedModule, routing, FormsModule, ReactiveFormsModule, NavigationModule],
+   imports: [
+      SharedModule,
+      routing,
+      FormsModule,
+      ReactiveFormsModule,
+      NavigationModule,
+      MarkdownToHtmlModule
+   ],
    declarations: [
       LayoutComponent,
       ModalComponent,
@@ -63,7 +70,6 @@ import { MarkdownToHtmlPipe } from 'markdown-to-html-pipe';
       PageTitleComponent,
       SearchComponent,
       ChangelogComponent,
-      MarkdownToHtmlPipe,
       DropdownComponent,
       DropdownMenuComponent,
       GridComponent

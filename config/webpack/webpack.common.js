@@ -6,15 +6,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const ngcWebpack = require('ngc-webpack');
 
 var CopyWebpackPlugin = (CopyWebpackPlugin = require('copy-webpack-plugin'), CopyWebpackPlugin.default || CopyWebpackPlugin);
+
+const AOT = helpers.hasNpmFlag('aot');
+
 
 module.exports = function (options) {
    return {
       entry: {
          'polyfills': './web/polyfills.ts',
          'vendor': './web/vendor.ts',
-         'app': './web/main.ts'
+         'app': AOT ? './web/main.aot.ts' :
+                  './src/main.browser.ts'
       },
 
       resolve: {
@@ -61,7 +66,7 @@ module.exports = function (options) {
             },
             {
                test: /\.(png|jpe?g|gif)$/,
-               use: "file-loader"
+               use: "file-loader?name=assets/images/[name].[ext]"
             }
          ]
       },
@@ -113,7 +118,12 @@ module.exports = function (options) {
          new NormalModuleReplacementPlugin(
             /facade(\\|\/)math/,
             helpers.root('node_modules/@angular/core/src/facade/math.js')
-         )
+         ),
+         new ngcWebpack.NgcWebpackPlugin({
+            disabled: false,
+            tsConfig: helpers.root('tsconfig.aot.json'),
+            resourceOverride: helpers.root('config/resource-override.js')
+         })
       ],
    }
 };
