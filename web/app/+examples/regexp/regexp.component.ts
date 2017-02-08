@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StRegEx, StInputError } from 'egeo'; // For declare messages in case of error.
+import { StRegEx, StInputError } from '../../../../components'; // For declare messages in case of error.
 import { ApiDoc, TYPES } from '../../shared';
 
 @Component({

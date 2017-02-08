@@ -1,4 +1,4 @@
-import { Buttons } from 'egeo';
+import { Buttons } from '../../../../components';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ApiDoc, TYPES } from '../../shared';
 

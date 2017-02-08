@@ -1,5 +1,5 @@
 import {Component, ViewEncapsulation, OnInit} from '@angular/core';
-import { StTwoListSelectionElement, StListModifierObject } from 'egeo';
+import { StTwoListSelectionElement, StListModifierObject } from '../../../../components';
 
 @Component({
   selector: 'two-list-selection-example',

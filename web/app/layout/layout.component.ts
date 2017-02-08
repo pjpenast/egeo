@@ -32,20 +32,26 @@ export class LayoutComponent {
    }
 
    checkUrl(): void {
-      if (this.formsUrls.includes(this.currentUrl)) {
+
+      if (this.containUrl(this.formsUrls, this.currentUrl)) {
          this.isFormsOpened = true;
       }
-      if (this.buttonsUrls.includes(this.currentUrl)) {
+      if (this.containUrl(this.buttonsUrls, this.currentUrl)) {
          this.isButtonsOpened = true;
       }
-      if (this.utilsUrls.includes(this.currentUrl)) {
+      if (this.containUrl(this.utilsUrls, this.currentUrl)) {
          this.isUtilsOpened = true;
       }
-      if (this.navigationUrls.includes(this.currentUrl)) {
+      if (this.containUrl(this.navigationUrls, this.currentUrl)) {
          this.isNavigationOpened = true;
       }
-      if (this.tabsUrls.includes(this.currentUrl)) {
+      if (this.containUrl(this.tabsUrls, this.currentUrl)) {
          this.isTabsOpened = true;
       }
+   }
+
+   private containUrl(list: Array<string>, value: string): boolean {
+      let result: string | undefined = list.find((item) => item === value);
+      return result !== undefined;
    }
 }

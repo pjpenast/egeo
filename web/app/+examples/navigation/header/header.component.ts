@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { ApiDoc, TYPES } from '../../../shared';
 
-import { StHeaderModel, StHeaderUserMenuModel } from 'egeo';
+import { StHeaderModel, StHeaderUserMenuModel } from '../../../../../components';
 
 @Component({
    selector: 'header-example',

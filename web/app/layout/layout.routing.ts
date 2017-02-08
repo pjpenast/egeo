@@ -58,7 +58,7 @@ export const routing: ModuleWithProviders = RouterModule.forChild([
       { path: 'page-title', component: PageTitleComponent },
       { path: 'search', component: SearchComponent },
       { path: 'changelog', component: ChangelogComponent },
-      { path: 'navigation', loadChildren: '../+examples/navigation/navigation.module#NavigationModule'}
+      { path: 'navigation', loadChildren: '../+examples#NavigationModule'}
     ]
   }
 ]);

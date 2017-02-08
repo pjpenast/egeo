@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Subject } from 'rxjs';
-import { StModalService, MessageModal, Buttons, BUTTON_TYPES, ModalTitle, StModalConfiguration } from 'egeo';
+import { StModalService, MessageModal, Buttons, BUTTON_TYPES, ModalTitle, StModalConfiguration } from '../../../../components';
 import { Component1 } from './shared/component1/component1';
 import { Component2 } from './shared/component2/component2';
 import { TestModule } from './shared/other.module';

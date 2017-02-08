@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { TranslateService } from 'ng2-translate/ng2-translate';
-import { StModalService } from 'egeo';
+import { StModalService } from '../../components';
 
 @Component({
    selector: 'app',

@@ -1,6 +1,6 @@
-import { NgModule, ApplicationRef }         from '@angular/core';
-import { BrowserModule }    from '@angular/platform-browser';
-import { HttpModule, Http }    from '@angular/http';
+import { NgModule, ApplicationRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, Http } from '@angular/http';
 
 /* External libs */
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
@@ -12,7 +12,7 @@ import { AppComponent }       from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { routing } from './app.routing';
 
-import { EgeoModule } from 'egeo';
+import { EgeoModule } from '../../components';
 
 import { AppStore, State } from './app.store';
 

@@ -1,7 +1,7 @@
 {
    "compilerOptions": {
       "target": "es5",
-      "module": "commonjs",
+      "module": "es2015",
       "moduleResolution": "node",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
@@ -12,8 +12,8 @@
       "importHelpers": true,
       "strictNullChecks": false,
       "lib": [
-         "dom",
-         "es6"
+         "es2015",
+         "dom"
       ],
       "typeRoots": [
          "node_modules/@types"
@@ -21,8 +21,16 @@
    },
    "exclude": [
       "node_modules",
-      "dist"
+      "dist",
+      "components/**/*.spec.ts",
+      "web/**/*.spec.ts",
+      "web/**/*.e2e.ts",
+      "components/**/*.e2e.ts"
    ],
+   "angularCompilerOptions": {
+      "genDir": "./compiled",
+      "skipMetadataEmit": true
+   },
    "awesomeTypescriptLoaderOptions": {
       "forkChecker": true,
       "useWebpackText": true

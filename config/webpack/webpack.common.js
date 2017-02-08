@@ -11,9 +11,10 @@ const ngcWebpack = require('ngc-webpack');
 var CopyWebpackPlugin = (CopyWebpackPlugin = require('copy-webpack-plugin'), CopyWebpackPlugin.default || CopyWebpackPlugin);
 
 const AOT = helpers.hasNpmFlag('aot');
-
+const HMR = helpers.hasProcessFlag('hot');
 
 module.exports = function (options) {
+   isProd = options.env === 'production';
    return {
       entry: {
          'polyfills': './web/polyfills.ts',
@@ -23,9 +24,6 @@ module.exports = function (options) {
       },
 
       resolve: {
-         alias: {
-            'egeo': helpers.root('components', 'index.ts'),
-         },
          extensions: ['.js', '.ts'],
          modules: [helpers.root('web'), helpers.root('node_modules')],
       },
@@ -39,12 +37,42 @@ module.exports = function (options) {
             {
                test: /\.ts$/,
                use: [
-                  '@angularclass/hmr-loader',
-                  'awesome-typescript-loader?declaration=false',
-                  'angular2-template-loader',
-                  'angular-router-loader'
+                  {
+                     loader: '@angularclass/hmr-loader',
+                     options: {
+                        pretty: !isProd,
+                        prod: isProd
+                     }
+                  },
+                  { // MAKE SURE TO CHAIN VANILLA JS CODE, I.E. TS COMPILATION OUTPUT.
+                     loader: 'ng-router-loader',
+                     options: {
+                        loader: 'async-import',
+                        genDir: 'compiled',
+                        aot: AOT
+                     }
+                  },
+                  {
+                     loader: 'awesome-typescript-loader',
+                     options: {
+                        configFileName: 'tsconfig.webpack.json'
+                     }
+                  },
+                  {
+                     loader: 'angular2-template-loader'
+                  }
                ],
                exclude: [/\.(spec|e2e)\.ts$/]
+            },
+            {
+               test: /\.css$/,
+               use: ['to-string-loader', 'css-loader'],
+               exclude: [helpers.root('web', 'styles')]
+            },
+            {
+               test: /\.scss$/,
+               use: ['to-string-loader', 'css-loader', 'sass-loader'],
+               exclude: [helpers.root('web', 'styles')]
             },
             {
                test: /\.html$/,
@@ -52,13 +80,8 @@ module.exports = function (options) {
                exclude: [helpers.root('web/index.html')]
             },
             {
-               test: /\.css$/,
-               use: ['style-loader', 'css-loader']
-            },
-            {
-               test: /\.scss$/,
-               exclude: '/node_modules/',
-               use: ['raw-loader', 'sass-loader']
+               test: /\.(jpg|png|gif)$/,
+               use: 'file-loader'
             },
             {
                test: /\.(svg|woff|woff2|ttf|eot|ico)$/,
@@ -120,8 +143,8 @@ module.exports = function (options) {
             helpers.root('node_modules/@angular/core/src/facade/math.js')
          ),
          new ngcWebpack.NgcWebpackPlugin({
-            disabled: false,
-            tsConfig: helpers.root('tsconfig.aot.json'),
+            disabled: !AOT,
+            tsConfig: helpers.root('tsconfig.webpack.json'),
             resourceOverride: helpers.root('config/resource-override.js')
          })
       ],

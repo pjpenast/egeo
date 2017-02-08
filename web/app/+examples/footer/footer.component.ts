@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { StFooterLink } from 'egeo';
+import { StFooterLink } from '../../../../components';
 import { ApiDoc, TYPES } from '../../shared';
 
 @Component({
