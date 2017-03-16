@@ -10,6 +10,8 @@ const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
+const COMPONENT_ENV = process.env.npm_config_component;
+
 
 module.exports = {
    devtool: 'inline-source-map',
@@ -76,6 +78,9 @@ module.exports = {
          // The (\\|\/) piece accounts for path separators in *nix and Windows
          /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
          helpers.root('./src') // location of your src
-      )
+      ),
+      new DefinePlugin({
+         'COMPONENT_ENV': JSON.stringify(COMPONENT_ENV)
+      }),
    ]
 }
