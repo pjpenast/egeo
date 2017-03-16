@@ -22,9 +22,6 @@ testing.TestBed.initTestEnvironment(
   browser.platformBrowserDynamicTesting()
 );
 
-console.log(COMPONENT_ENV);
-
-
 if (!COMPONENT_ENV) {
   var testContext = require.context('../src', true, /\.spec\.ts/);
 } else {
