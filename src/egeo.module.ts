@@ -22,7 +22,7 @@ export class EgeoModule {
    static forRoot(): ModuleWithProviders {
       return {
          ngModule: EgeoModule,
-         providers: [ StModalService, StPaginationService, EgeoResolveService ]
+         providers: [StModalService, StPaginationService, EgeoResolveService]
       };
    }
 }

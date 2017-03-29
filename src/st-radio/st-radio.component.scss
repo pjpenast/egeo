@@ -1,0 +1,85 @@
+@import '../../node_modules/@stratio/egeo-ui-base/utils/typography';
+@import '../../node_modules/@stratio/egeo-ui-base/utils/colors';
+
+.st-radio {
+   box-sizing: border-box;
+   display: flex;
+   align-content: center;
+   align-items: center;
+
+   &.disabled {
+      opacity: 0.7;
+
+      .custom-radio {
+         cursor: default;
+      }
+   }
+
+   .custom-radio {
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+      display: inline-block;
+      border-radius: 100%;
+      text-align: center;
+      position: relative;
+      box-sizing: border-box;
+      margin-right: 14px;
+
+      &.checked {
+         &:before {
+            display: block;
+            position: absolute;
+            content: '';
+            border-radius: 100%;
+            height: 7px;
+            width: 7px;
+            top: 3px;
+            left: 3px;
+            margin: auto;
+            box-sizing: border-box;
+         }
+      }
+   }
+
+}
+
+
+/// Custom Styles
+
+.sth-radio {
+   &.disabled {
+      .sth-radio-custom {
+         &:hover {
+            border: 1px solid egeo-get-color(n5);
+         }
+      }
+   }
+}
+
+.sth-radio-custom {
+   background-color: egeo-get-color(n0);
+   border: 1px solid egeo-get-color(n5);
+
+
+   &.checked {
+      border-color: egeo-get-color(n10);
+
+      &:before {
+         background: egeo-get-color(n10);
+      }
+   }
+
+   &.disabled {
+      border-color: egeo-get-color(n5);
+      opacity: 0.9;
+   }
+
+   &:hover {
+      border-color: egeo-get-color(a1);
+
+      &:before {
+         background: egeo-get-color(a1);
+      }
+   }
+}

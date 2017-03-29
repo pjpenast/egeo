@@ -19,8 +19,7 @@ import { StToggleButtonsModule } from './st-toggle-buttons';
 import { StTooltipModule } from './st-tooltip';
 import { StTwoListSelectionModule } from './st-two-list-selection';
 import { StVerticalTabsModule } from './st-vertical-tabs';
-
-
+import { StRadioModule } from './st-radio';
 
 export const DECLARATIONS: Array<any> = [
    PipesModule,
@@ -43,5 +42,6 @@ export const DECLARATIONS: Array<any> = [
    StTwoListSelectionModule,
    StVerticalTabsModule,
    StPaginationModule,
-   StModalModule
+   StModalModule,
+   StRadioModule
 ];
