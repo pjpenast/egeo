@@ -1,26 +1,140 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, Optional } from '@angular/core';
+
+import { StRadioGroupComponent, RadioChange } from './st-radio-group.component';
+
+import { UniqueSelectionDispatcher } from '../utils';
+
+let _uniqueIdCounter = 0;
 
 @Component({
    selector: 'st-radio',
    templateUrl: 'st-radio.component.html',
-   styleUrls: ['st-radio.component.scss']
+   styleUrls: ['st-radio.component.scss'],
+   host: {
+      '[class.sth-radio-checked]': 'checked',
+      '[attr.id]': 'id'
+   }
 })
 export class StRadioComponent implements OnInit {
 
+   radioGroup: StRadioGroupComponent;
+
+   @Input() id: string = `st-radio-${_uniqueIdCounter++}`;
    @Input() name: string;
-   @Input() checked: boolean;
-   @Input() disabled: boolean;
-   @Input() value: any;
-   @Output() change: EventEmitter<any> = new EventEmitter<any>();
+   @Input()
+   get checked(): boolean {
+      return this._checked;
+   }
 
-   constructor() { }
+   set checked(newCheckedState: boolean) {
 
-   ngOnInit(): void { }
+      if (this._checked != newCheckedState) {
+         this._checked = newCheckedState;
+      }
 
-   toggleRadio(event: MouseEvent): void {
+      if (newCheckedState && this.radioGroup && this.radioGroup.value != this.value) {
+         this.radioGroup.selected = this;
+      } else if (!newCheckedState && this.radioGroup && this.radioGroup.value === this.value) {
+         this.radioGroup.selected = null;
+      }
+
+      if (newCheckedState) {
+         this._radioDispatcher.notify(this.id, this.name);
+      }
+   }
+
+   @Input()
+   get disabled(): boolean {
+      return this._disabled || (this.radioGroup != null && this.radioGroup.disabled);
+   }
+
+   set disabled(value: boolean) {
+      this._disabled = (value != null && value !== false) ? true : null;
+   }
+
+   @Input()
+   get value(): any {
+      return this._value;
+   }
+
+   set value(value: any) {
+      if (this._value !== value) {
+         this._value = value;
+
+         if (this.radioGroup != null) {
+            if (!this.checked) {
+               this.checked = this.radioGroup.value === value;
+            } else {
+               this.radioGroup.selected = null;
+            }
+         }
+      }
+   }
+
+   @Output() change: EventEmitter<RadioChange> = new EventEmitter<RadioChange>();
+
+   get inputId(): string {
+      return `${this.id}-input`;
+   }
+
+   private _value: any = null;
+   private _checked: boolean;
+   private _disabled: boolean;
+
+   constructor(
+      @Optional() radioGroup: StRadioGroupComponent,
+      private _radioDispatcher: UniqueSelectionDispatcher
+   ) {
+      this.radioGroup = radioGroup;
+
+      _radioDispatcher.listen((id: string, name: string) => {
+         if (id !== this.id && name === this.name) {
+            this.checked = false;
+         }
+      });
+   }
+
+   ngOnInit(): void {
+      if (this.radioGroup) {
+         this.checked = this.radioGroup.value === this._value;
+         this.name = this.radioGroup.name;
+      }
+   }
+
+   onInputBlur(): void {
+      if (this.radioGroup) {
+         this.radioGroup._touch();
+      }
+   }
+
+   onInputClick(event: Event): void {
+      event.stopPropagation();
+   }
+
+   toggleRadio(event: Event): void {
+
+      event.stopPropagation();
+      let groupValueChanged = this.radioGroup && this.value != this.radioGroup.value;
+
       if (!this.disabled) {
          this.checked = !this.checked;
-         this.change.emit(this.value);
+         this.emitChangeEvent();
       }
+
+      if (this.radioGroup) {
+         this.radioGroup._controlValueAccessorChangeFn(this.value);
+
+         if (groupValueChanged) {
+            this.radioGroup._emitChangeEvent();
+         }
+      }
+
+   }
+
+   private emitChangeEvent(): void {
+      let event = new RadioChange();
+      event.source = this;
+      event.value = this._value;
+      this.change.emit(event);
    }
 }

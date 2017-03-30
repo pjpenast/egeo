@@ -1,5 +1,16 @@
-<label class="st-radio sth-radio" [ngClass]="{'disabled': disabled}">
-   <input type="radio" [name]="name" [hidden]="true" [checked]="checked" [disabled]="disabled" [value]="value">
-   <div class="custom-radio sth-radio-custom" [ngClass]="{'checked' : checked}" (click)="toggleRadio($event)"></div>
+<label [attr.for]="inputId" class="st-radio sth-radio" [ngClass]="{'disabled': disabled}" #label>
+   <input 
+      type="radio" 
+      [id]="inputId"
+      [name]="name" 
+      [hidden]="true"
+      [checked]="checked"
+      [disabled]="disabled" 
+      (blur)="onInputBlur()" 
+      (change)="toggleRadio($event)"
+      (click)="onInputClick($event)"
+      [value]="value">
+
+   <div class="custom-radio sth-radio-custom" [ngClass]="{'checked' : checked}"></div>
    <ng-content></ng-content>
 </label>
