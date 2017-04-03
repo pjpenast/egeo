@@ -1,10 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnInit, Optional } from '@angular/core';
 
 import { StRadioGroupComponent, RadioChange } from './st-radio-group.component';
+import { SelectOneDispatcher } from '../utils';
 
-import { UniqueSelectionDispatcher } from '../utils';
-
-let _uniqueIdCounter = 0;
+let idUnique: number = 0;
 
 @Component({
    selector: 'st-radio',
@@ -19,7 +18,7 @@ export class StRadioComponent implements OnInit {
 
    radioGroup: StRadioGroupComponent;
 
-   @Input() id: string = `st-radio-${_uniqueIdCounter++}`;
+   @Input() id: string = `st-radio-${idUnique++}`;
    @Input() name: string;
    @Input()
    get checked(): boolean {
@@ -28,7 +27,7 @@ export class StRadioComponent implements OnInit {
 
    set checked(newCheckedState: boolean) {
 
-      if (this._checked != newCheckedState) {
+      if (this._checked !== newCheckedState) {
          this._checked = newCheckedState;
       }
 
@@ -83,10 +82,10 @@ export class StRadioComponent implements OnInit {
 
    constructor(
       @Optional() radioGroup: StRadioGroupComponent,
-      private _radioDispatcher: UniqueSelectionDispatcher
+      private _radioDispatcher: SelectOneDispatcher
    ) {
-      this.radioGroup = radioGroup;
 
+      this.radioGroup = radioGroup;
       _radioDispatcher.listen((id: string, name: string) => {
          if (id !== this.id && name === this.name) {
             this.checked = false;

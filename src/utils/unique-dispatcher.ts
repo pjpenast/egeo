@@ -1,28 +1,19 @@
 import { Injectable, Optional, SkipSelf } from '@angular/core';
 
-export type UniqueSelectionDispatcherListener = (id: string, name: string) => void;
-
+export type SelectOneDispaptcherListener = (id: string, name: string) => void;
 
 @Injectable()
-export class UniqueSelectionDispatcher {
-   private _listeners: UniqueSelectionDispatcherListener[] = [];
-   notify(id: string, name: string) {
-      for (let listener of this._listeners) {
+export class SelectOneDispatcher {
+   private listeners: SelectOneDispaptcherListener[] = [];
+
+   notify(id: string, name: string): void {
+      for (let listener of this.listeners) {
          listener(id, name);
       }
    }
-   listen(listener: UniqueSelectionDispatcherListener) {
-      this._listeners.push(listener);
+
+   listen(listener: SelectOneDispaptcherListener): void {
+      this.listeners.push(listener);
    }
-}
 
-export function UNIQUE_SELECTION_DISPATCHER_PROVIDER_FACTORY(
-   parentDispatcher: UniqueSelectionDispatcher) {
-   return parentDispatcher || new UniqueSelectionDispatcher();
 }
-
-export const UNIQUE_SELECTION_DISPATCHER_PROVIDER = {
-   provide: UniqueSelectionDispatcher,
-   deps: [[new Optional(), new SkipSelf(), UniqueSelectionDispatcher]],
-   useFactory: UNIQUE_SELECTION_DISPATCHER_PROVIDER_FACTORY
-};

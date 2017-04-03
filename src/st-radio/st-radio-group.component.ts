@@ -1,7 +1,6 @@
 import { Directive, Input, Output, EventEmitter, OnInit, ContentChildren, forwardRef, QueryList } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-
 import { StRadioComponent } from './st-radio.component';
 
 export const MD_RADIO_GROUP_CONTROL_VALUE_ACCESSOR: any = {
@@ -108,7 +107,7 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
       }
    }
 
-   _touch() {
+   _touch(): void {
       if (this.onTouched) {
          this.onTouched();
       }
