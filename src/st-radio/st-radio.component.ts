@@ -19,6 +19,8 @@ export class StRadioComponent implements OnInit {
    radioGroup: StRadioGroupComponent;
 
    @Input() id: string = `st-radio-${idUnique++}`;
+   @Input() qaTag: string = `st-radio-${idUnique++}`;
+
    @Input() name: string;
    @Input()
    get checked(): boolean {

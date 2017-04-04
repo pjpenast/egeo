@@ -1,7 +1,8 @@
-<label [attr.for]="inputId" class="st-radio sth-radio" [ngClass]="{'disabled': disabled}" #label>
+<label [attr.for]="inputId" class="st-radio sth-radio" [ngClass]="{'disabled': disabled}" #label [attr.id]="qaTag">
    <input 
       type="radio" 
       [id]="inputId"
+      [attr.id]=""
       [name]="name" 
       [hidden]="true"
       [checked]="checked"

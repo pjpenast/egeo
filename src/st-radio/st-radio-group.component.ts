@@ -29,6 +29,9 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
    change: EventEmitter<RadioChange> = new EventEmitter<RadioChange>();
 
    @Input()
+   qaTag: string;
+
+   @Input()
    get value(): any {
       return this._value;
    }
