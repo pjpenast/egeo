@@ -2,7 +2,7 @@
 
 ## 1.4.0 (upcoming)
 
-* Pending changelog
+* Add st-radio and st-radio-group components
 
 ## 1.3.1 (April 03, 2017)
 * Fix st-modal, export StModalResponse
