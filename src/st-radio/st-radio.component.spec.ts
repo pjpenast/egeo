@@ -44,6 +44,14 @@ describe('StRadioComponent', () => {
          fixture.detectChanges();
          expect(compiled.querySelector('input').value).toBe('1');
       });
+
+      it('Should not update the value when no change', () => {
+         component.value = 1;
+         fixture.detectChanges();
+         expect(compiled.querySelector('input').value).toBe('1');
+         component.value = 1;
+         expect(compiled.querySelector('input').value).toBe('1');
+      });
    });
 
    describe('When check the component as disabled', () => {
@@ -70,6 +78,7 @@ describe('StRadioComponent', () => {
          expect(compiled.querySelector('input').checked).toBeFalsy();
       });
    });
+
 
 
 });

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StModalService } from './st-modal';
 import { StPaginationService } from './st-pagination';
-import { EgeoResolveService, UniqueSelectionDispatcher } from './utils';
+import { EgeoResolveService, SelectOneDispatcher } from './utils';
 
 import { DECLARATIONS } from './modules';
 
@@ -22,7 +22,7 @@ export class EgeoModule {
    static forRoot(): ModuleWithProviders {
       return {
          ngModule: EgeoModule,
-         providers: [StModalService, StPaginationService, EgeoResolveService, UniqueSelectionDispatcher]
+         providers: [StModalService, StPaginationService, EgeoResolveService, SelectOneDispatcher]
       };
    }
 }

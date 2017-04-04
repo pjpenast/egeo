@@ -22,6 +22,7 @@ describe('StRadioGroup', () => {
    let groupInstance: StRadioGroupComponent;
    let radioInstances: StRadioComponent[];
    let testComponent: RadioGroupWithModel;
+   let groupNgControl: NgControl;
 
    beforeEach(() => {
       TestBed.configureTestingModule({
@@ -49,6 +50,8 @@ describe('StRadioGroup', () => {
       radioInputElements = radioDebugElements
          .map(debugEl => debugEl.query(By.css('input')).nativeElement);
 
+      groupNgControl = groupDebugElement.injector.get(NgControl);
+
 
    });
 
@@ -59,7 +62,7 @@ describe('StRadioGroup', () => {
       expect(groupInstance.name).toBeTruthy();
       for (let radio of radioInstances) {
          expect(radio.name).toBe(groupInstance.name);
-      }
+      };
    });
 
    it('should update the group value when one of the radios changes', () => {
@@ -76,15 +79,23 @@ describe('StRadioGroup', () => {
       fixture.detectChanges();
       expect(groupInstance.value).toBe('2');
       expect(groupInstance.selected).toBe(radioInstances[1]);
-   })
+   });
+
+   it('should blur about component radio', () => {
+      expect(groupNgControl.touched).toBe(false);
+      radioInstances[0].onInputBlur();
+      fixture.detectChanges();
+
+      expect(groupNgControl.touched).toBe(true);
+   });
 
    @Component({
       template: `
-         <st-radio-group [(ngModel)]="modelValue" (change)="lastEvent = $event">
-            <st-radio *ngFor="let item of items" [value]="item.value">
-               {{item.label}}
-            </st-radio>
-         </st-radio-group>      
+            <st-radio-group [(ngModel)]="modelValue" (change)="lastEvent = $event">
+                  <st-radio *ngFor="let item of items" [value]="item.value">
+                  {{item.label}}
+                  </st-radio>
+            </st-radio-group>      
       `
    })
    class RadioGroupWithModel {

@@ -34,12 +34,12 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
    }
 
    set value(newValue: any) {
-      if (this._value != newValue) {
+      if (this._value !== newValue) {
          this._value = newValue;
       }
 
-      this._updateSelectedRadioFromValue();
-      this._checkSelectedRadioButton();
+      this.updatedSelectRadiofromValue();
+      this.checkSelectRadio();
    }
 
    @Input()
@@ -49,15 +49,17 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
 
    set name(value: string) {
       this._name = value;
-      this._updateRadioButtonNames();
+      this.updateRadioName();
    }
 
    @Input()
-   get selected() { return this._selected; }
+   get selected(): StRadioComponent {
+      return this._selected;
+   }
    set selected(selected: StRadioComponent) {
       this._selected = selected;
       this.value = selected ? selected.value : null;
-      this._checkSelectedRadioButton();
+      this.checkSelectRadio();
    }
 
    @Input()
@@ -82,15 +84,15 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
 
    ngOnInit(): void { }
 
-   writeValue(value: any) {
+   writeValue(value: any): void {
       this.value = value;
    }
 
-   registerOnChange(fn: (value: any) => void) {
+   registerOnChange(fn: (value: any) => void): void {
       this._controlValueAccessorChangeFn = fn;
    }
 
-   registerOnTouched(fn: any) {
+   registerOnTouched(fn: any): void {
       this.onTouched = fn;
    }
 
@@ -101,7 +103,7 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
       this.change.emit(event);
    }
 
-   _checkSelectedRadioButton(): void {
+   checkSelectRadio(): void {
       if (this.selected && !this._selected.checked) {
          this._selected.checked = true;
       }
@@ -113,11 +115,11 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
       }
    }
 
-   setDisabledState(isDisabled: boolean) {
+   setDisabledState(isDisabled: boolean): void {
       this.disabled = isDisabled;
    }
 
-   private _updateRadioButtonNames(): void {
+   private updateRadioName(): void {
       if (this._radios) {
          this._radios.forEach(radio => {
             radio.name = this.name;
@@ -125,13 +127,13 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
       }
    }
 
-   private _updateSelectedRadioFromValue(): void {
-      let isAlreadySelected = this._selected != null && this._selected.value == this._value;
+   private updatedSelectRadiofromValue(): void {
+      let isAlreadySelected = this._selected != null && this._selected.value === this._value;
 
       if (this._radios != null && !isAlreadySelected) {
          this._selected = null;
          this._radios.forEach(radio => {
-            radio.checked = this.value == radio.value;
+            radio.checked = this.value === radio.value;
             if (radio.checked) {
                this._selected = radio;
             }

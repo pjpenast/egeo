@@ -31,7 +31,7 @@ export class StRadioComponent implements OnInit {
          this._checked = newCheckedState;
       }
 
-      if (newCheckedState && this.radioGroup && this.radioGroup.value != this.value) {
+      if (newCheckedState && this.radioGroup && this.radioGroup.value !== this.value) {
          this.radioGroup.selected = this;
       } else if (!newCheckedState && this.radioGroup && this.radioGroup.value === this.value) {
          this.radioGroup.selected = null;
@@ -113,7 +113,7 @@ export class StRadioComponent implements OnInit {
    toggleRadio(event: Event): void {
 
       event.stopPropagation();
-      let groupValueChanged = this.radioGroup && this.value != this.radioGroup.value;
+      let groupValueChanged = this.radioGroup && this.value !== this.radioGroup.value;
 
       if (!this.disabled) {
          this.checked = !this.checked;
