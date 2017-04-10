@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Optional, Output } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnInit, Optional } from '@angular/core';
 
 import { SelectOneDispatcher } from '../utils';
-import { RadioChange, StRadioGroupComponent } from './st-radio-group.component';
+import { StRadioGroupComponent } from './st-radio-group.component';
+import { RadioChange } from './st-radio.change';
+
 
 let idUnique: number = 0;
 
@@ -96,7 +98,7 @@ export class StRadioComponent implements OnInit {
    }
 
    ngOnInit(): void {
-      if (this.radioGroup) {
+      if (this.radioGroup && this.radioGroup.value) {
          this.checked = this.radioGroup.value === this._value;
          this.name = this.radioGroup.name;
       }

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { StRadioGroupComponent } from './st-radio-group.component';
-import { StRadioComponent } from './st-radio.component';
 
+import { StRadioComponent } from './st-radio.component';
+import { StRadioGroupComponent } from './st-radio-group.component';
 
 @NgModule({
    imports: [

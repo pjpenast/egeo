@@ -2,6 +2,7 @@ import { ContentChildren, Directive, EventEmitter, forwardRef, Input, OnInit, Ou
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { StRadioComponent } from './st-radio.component';
+import { RadioChange } from './st-radio.change';
 
 export const MD_RADIO_GROUP_CONTROL_VALUE_ACCESSOR: any = {
    provide: NG_VALUE_ACCESSOR,
@@ -9,10 +10,7 @@ export const MD_RADIO_GROUP_CONTROL_VALUE_ACCESSOR: any = {
    multi: true
 };
 
-export class RadioChange {
-   source: StRadioComponent;
-   value: any;
-}
+
 
 let _uniqueIdCounter = 0;
 
@@ -80,7 +78,8 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
    private _disabled: boolean = false;
    private _name: string = `st-radio-group-${_uniqueIdCounter++}`;
 
-   constructor() { }
+   constructor(
+   ) { }
 
    _controlValueAccessorChangeFn: (value: any) => void = (value) => { };
 
