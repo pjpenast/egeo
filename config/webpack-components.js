@@ -36,7 +36,7 @@ module.exports = {
          use: [{
             loader: 'awesome-typescript-loader?declaration=false',
             options: {
-               configFileName: 'tsconfig.lib.json'
+               tsconfig: 'tsconfig.lib.json'
             }
          },
          {

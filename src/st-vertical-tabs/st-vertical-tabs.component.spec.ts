@@ -48,6 +48,24 @@ describe('StVerticaltabsComponent', () => {
          expect(comp.isActive(activeOptionName)).toBeFalsy();
          expect(comp.isActive(fakeOptions[0])).toBeTruthy();
       });
+
+      it('should test when qaTag is not passed', () => {
+         comp.qaTag = undefined;
+         try {
+            fixture.detectChanges();
+         } catch (error) {
+            expect(error.message).toContain('caused by: qaTag is a required field');
+         }
+      });
+
+      it('should test when options is not passed', () => {
+         comp.options = undefined;
+         try {
+            fixture.detectChanges();
+         } catch (error) {
+            expect(error.message).toContain('options is a required field');
+         }
+      });
    });
 
    describe('should be able to activate an option', () => {
@@ -80,5 +98,18 @@ describe('StVerticaltabsComponent', () => {
 
          expect(outputOption).toEqual(fakeOptions[2]);
       }));
+
+      it('when active option is changed from outside, refresh state', () => {
+         fixture.detectChanges();
+
+         let outputOption: string = '';
+         comp.changeOption.subscribe((option: string) => outputOption = option);
+
+         comp.activeOption = fakeOptions[3];
+         comp.ngOnChanges({ activeOption: { currentValue: 'tab 3' } });
+         fixture.detectChanges();
+
+         expect(comp.activeOptionIndex).toEqual(2);
+      });
    });
 });

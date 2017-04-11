@@ -5,10 +5,8 @@
     class="st-tab-box__tab"
     [style.width]="getTabWidth()"
     [attr.id]="qaTag + '-' + tab.label"
-    [class.st-tab-box__tab--active]="tab.active"
-    [ngClass]="{'right-shadow': i==0 && !tab.active, 'left-shadow': i!=0 && !tab.active}">
+    [ngClass]="{'st-tab-box__tab--active': tab.active, 'right-shadow': i==0 && !tab.active, 'left-shadow': i!=0 && !tab.active}">
     {{tab.label}}
-    <span *ngIf="tab.number?.toFixed">({{tab.number}})</span>
   </div>
   <div class="st-tab-box__content">
     <ng-content></ng-content>

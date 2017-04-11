@@ -1,8 +1,8 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Component
-import {StTooltip} from './st-tooltip.component';
+import { StTooltip } from './st-tooltip.component';
 
 
 let component: StTooltip;
@@ -22,7 +22,7 @@ describe('StTooltip', () => {
       nativeElement = fixture.nativeElement;
    });
 
-   it ('It has to display a text in its dialog', () => {
+   it('It has to display a text in its dialog', () => {
       component.text = fakeText;
 
       fixture.detectChanges();
@@ -55,10 +55,28 @@ describe('StTooltip', () => {
 
       expect(nativeElement.querySelector('.st-tooltip .tooltip-content.on-hover')).toBeDefined();
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new  Event('mouseenter'));
+      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseenter'));
 
       fixture.detectChanges();
       expect(component.isActive).toBeTruthy();
+
+      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseleave'));
+      fixture.detectChanges();
+
+      expect(component.isActive).toBeFalsy();
+   });
+
+   it('It can be configured to be displayed and hidden when user clicks and hover', () => {
+      component.showOnClick = true;
+      component.isActive = false;
+      component.text = fakeText;
+
+      expect(nativeElement.querySelector('.st-tooltip .tooltip-content.on-hover')).toBeNull();
+
+      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseenter'));
+
+      fixture.detectChanges();
+      expect(component.isActive).toBeFalsy();
 
       nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseleave'));
       fixture.detectChanges();

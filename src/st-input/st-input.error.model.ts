@@ -6,8 +6,6 @@ export interface StInputError {
   minLength?: string;
   maxLength?: string;
   type?: string;
-  min?: string;
-  max?: string;
   pattern?: string;
 }
 
@@ -17,8 +15,6 @@ export interface StInputErrorSchema {
   minLength?: TranslateableElement;
   maxLength?: TranslateableElement;
   type?: TranslateableElement;
-  min?: TranslateableElement;
-  max?: TranslateableElement;
   pattern?: TranslateableElement;
 }
 

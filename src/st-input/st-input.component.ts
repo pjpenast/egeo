@@ -170,12 +170,6 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
       if (errors.hasOwnProperty('pattern')) {
          return this.errors.pattern || this.errors.generic || '';
       }
-      if (errors.hasOwnProperty('min')) {
-         return this.errors.min || this.errors.generic || '';
-      }
-      if (errors.hasOwnProperty('max')) {
-         return this.errors.max || this.errors.generic || '';
-      }
       return '';
    }
 

@@ -83,7 +83,8 @@ export class StSearchComponent implements OnChanges, OnDestroy, OnInit {
    }
 
    private checkMins(): boolean {
-      return this.minLength <= this.searchBox.value.length || this.searchBox.value.trim().length === 0;
+      return this.minLength <= (this.searchBox && this.searchBox.value && this.searchBox.value.length) ||
+         this.searchBox.value.trim().length === 0;
    }
 
    private isEqualPrevious(force: boolean): boolean {
