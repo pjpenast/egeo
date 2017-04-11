@@ -100,6 +100,9 @@ export class StRadioComponent implements OnInit {
    ngOnInit(): void {
       if (this.radioGroup && this.radioGroup.value) {
          this.checked = this.radioGroup.value === this._value;
+      }
+
+      if (this.radioGroup) {
          this.name = this.radioGroup.name;
       }
    }
