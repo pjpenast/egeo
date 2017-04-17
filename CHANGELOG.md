@@ -1,12 +1,17 @@
 # Changelog
 
-## 1.4.0 (upcoming)
+## 1.5.0 (upcoming)
+
+* Pending changelog
+
+## 1.4.0 (April 17, 2017)
 
 * Add st-radio and st-radio-group components
 * Add test to EgeoResolve
 * Bugfix #144 and #77
 * Update spinner styles to remove margins
 * Increase test coverage in all components
+* EgDeprecated decorator
 
 ## 1.3.3 (April 05, 2017)
 

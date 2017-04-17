@@ -1,1 +1,1 @@
-export { Required, CheckRequired } from './require-decorators';
+export { CheckRequired, Required, EgDeprecated, Egeo } from './require-decorators';
