@@ -86,7 +86,7 @@ export class StRadioComponent implements OnInit {
 
    constructor(
       @Optional() radioGroup: StRadioGroupComponent,
-      _radioDispatcher: SelectOneDispatcher
+      private _radioDispatcher: SelectOneDispatcher
    ) {
 
       this.radioGroup = radioGroup;
