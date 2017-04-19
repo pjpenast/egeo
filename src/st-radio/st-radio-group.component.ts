@@ -71,12 +71,12 @@ export class StRadioGroupComponent implements OnInit, ControlValueAccessor {
    }
 
    @ContentChildren(forwardRef(() => StRadioComponent))
-   private _radios: QueryList<StRadioComponent> = null;
+   _radios: QueryList<StRadioComponent> = null;
 
-   private _value: any = null;
-   private _selected: StRadioComponent = null;
-   private _disabled: boolean = false;
-   private _name: string = `st-radio-group-${_uniqueIdCounter++}`;
+   _value: any = null;
+   _selected: StRadioComponent = null;
+   _disabled: boolean = false;
+   _name: string = `st-radio-group-${_uniqueIdCounter++}`;
 
    constructor(
    ) { }

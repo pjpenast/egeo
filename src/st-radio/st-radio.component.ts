@@ -80,9 +80,9 @@ export class StRadioComponent implements OnInit {
       return `${this.id}-input`;
    }
 
-   private _value: any = null;
-   private _checked: boolean;
-   private _disabled: boolean;
+   _value: any = null;
+   _checked: boolean;
+   _disabled: boolean;
 
    constructor(
       @Optional() radioGroup: StRadioGroupComponent,
