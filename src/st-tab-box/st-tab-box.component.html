@@ -1,11 +1,11 @@
-<section class="st-tab-box">
+<section class="st-tab-box sth-tab-box">
   <div
     *ngFor="let tab of tabs; let i = index;"
     (click)="onClick(tab)"
-    class="st-tab-box__tab"
+    class="sth-tab-box__tab st-tab-box__tab"
     [style.width]="getTabWidth()"
     [attr.id]="qaTag + '-' + tab.label"
-    [ngClass]="{'st-tab-box__tab--active': tab.active, 'right-shadow': i==0 && !tab.active, 'left-shadow': i!=0 && !tab.active}">
+    [ngClass]="getTabClass(tab, i)">
     {{tab.label}}
   </div>
   <div class="st-tab-box__content">

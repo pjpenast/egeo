@@ -1,5 +1,3 @@
-$padding: 10px;
-
 .st-page-title {
   width: 100%;
   display: flex;
@@ -9,9 +7,9 @@ $padding: 10px;
 }
 
 .button-box {
-  padding-right: $padding;
-  padding-bottom: $padding - 2;
-  margin-right: $padding;
+  padding-right: 10px;
+  padding-bottom: 8;
+  margin-right: 10px;
   display: inline-block;
 }
 
@@ -19,7 +17,7 @@ $padding: 10px;
   flex-grow: 1;
   white-space: nowrap;
   line-height: 25px;
-  padding-bottom: $padding;
+  padding-bottom: 10px;
   vertical-align: bottom;
   overflow: hidden;
   text-overflow: ellipsis;

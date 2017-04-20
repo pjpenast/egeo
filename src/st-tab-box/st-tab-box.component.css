@@ -1,0 +1,16 @@
+.st-tab-box {
+   width: 100%;
+   height: 100%;
+}
+
+.st-tab-box__tab {
+   float: left;
+   padding: 15px 0 0 20px;
+   height: 40px;
+   line-height: 20px;
+   cursor: pointer;
+}
+
+.st-tab-box__content {
+   padding: 22px;
+}

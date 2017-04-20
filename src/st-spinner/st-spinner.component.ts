@@ -4,7 +4,7 @@ import { CheckRequired, Required } from '../decorators';
 @Component({
   selector: 'st-spinner',
   templateUrl: './st-spinner.component.html',
-  styleUrls: ['./st-spinner.component.scss'],
+  styleUrls: ['./st-spinner.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 @CheckRequired()

@@ -1,4 +1,5 @@
 import { PipesModule } from './pipes';
+import { StBreadcrumbsModule }  from './st-breadcrumbs';
 import { StButtonModule } from './st-button';
 import { StDropdownModule } from './st-dropdown';
 import { StDropdownMenuModule } from './st-dropdown-menu';
@@ -23,6 +24,7 @@ import { StVerticalTabsModule } from './st-vertical-tabs';
 
 export const DECLARATIONS: any[] = [
    PipesModule,
+   StBreadcrumbsModule,
    StButtonModule,
    StDropdownModule,
    StDropdownMenuModule,

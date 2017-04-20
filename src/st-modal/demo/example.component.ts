@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject } from 'rxjs/Subject';
 import { StModalButton, StModalMainTextSize, StModalResponse, StModalType, StModalWidth } from '../st-modal.interface';
 import { StModalService } from '../st-modal.service';
 import { ModalTestComponent } from './modal-test.component';

@@ -2,7 +2,15 @@
 
 ## 1.5.0 (upcoming)
 
-* Pending changelog
+* Extract theme of info-card
+* Extract theme of input
+* Extract theme of tab-box
+* Extract theme of toggle-buttons
+* Extract theme of tooltip
+* Extract theme of vertical-tabs
+* Extract theme of search
+* Reduce bundle size
+* Add Breadcrumbs component 
 
 ## 1.4.1 (April 17, 2017)
 

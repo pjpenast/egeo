@@ -4,7 +4,7 @@ import { StTab } from './st-tab-box.interface';
 @Component({
    selector: 'st-tab-box',
    templateUrl: './st-tab-box.component.html',
-   styleUrls: ['./st-tab-box.component.scss'],
+   styleUrls: ['./st-tab-box.component.css'],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StTabBoxComponent {
@@ -28,5 +28,12 @@ export class StTabBoxComponent {
 
    getTabWidth(): string {
       return `${(100 / this.tabs.length).toFixed(2)}%`;
+   }
+
+   getTabClass(tab: StTab, i: number): string {
+      let classes: string = tab.active ? 'st-tab-box__tab--active sth-tab-box__tab--active' : '';
+      classes += i === 0 && !tab.active ? ' sth-tab-box-right-shadow' : '';
+      classes += i !== 0 && !tab.active ? ' sth-tab-box-left-shadow' : '';
+      return classes.trim();
    }
 }

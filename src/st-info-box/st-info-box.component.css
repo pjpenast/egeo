@@ -1,0 +1,32 @@
+.st-info-box {
+   margin: 0;
+   height: 100%;
+   width: 100%;
+   overflow-x: auto;
+}
+
+.st-info-box__header {
+   display: block;
+   width: 100%;
+   height: 50px;
+   line-height: 52px;
+   padding: 0 30px;
+}
+
+.st-info-box__header__icon {
+   width: 20px;
+   height: 20px;
+   margin-right: 10px;
+}
+
+.st-info-box__header__text {
+   font-size: 18px;
+}
+
+.st-info-box__content {
+   padding: 20px 30px 30px 30px;
+}
+
+ :host {
+   display: block;
+}

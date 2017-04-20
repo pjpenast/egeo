@@ -1,0 +1,17 @@
+
+.st-breadcrumbs__item {
+   display: inline;
+}
+
+.st-breadcrumbs__item--text {
+   cursor: pointer;
+}
+
+.last .st-breadcrumbs__item--text {
+   cursor: default;
+   background-color: transparent;
+}
+
+.last .st-breadcrumbs__item--arrow {
+   display: none;
+}

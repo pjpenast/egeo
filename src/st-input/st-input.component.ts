@@ -13,14 +13,14 @@ import {
    ViewChildren
 } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 import { StInputError } from './st-input.error.model';
 
 @Component({
    selector: 'st-input',
    templateUrl: './st-input.component.html',
-   styleUrls: ['./st-input.component.scss'],
+   styleUrls: ['./st-input.component.css'],
    providers: [
       { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => StInputComponent), multi: true },
       { provide: NG_VALIDATORS, useExisting: forwardRef(() => StInputComponent), multi: true }
@@ -127,7 +127,7 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
 
    /** Style functions */
    getBarType(): string {
-      return this.showError() ? 'error-bar' : 'normal-bar';
+      return this.showError() ? 'st-input-error-bar sth-input-error-bar' : 'st-input-normal-bar sth-input-normal-bar';
    }
 
    onFocus(event: Event): void {

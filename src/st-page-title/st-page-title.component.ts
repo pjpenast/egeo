@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 @Component({
   selector: 'st-page-title',
   templateUrl: './st-page-title.component.html',
-  styleUrls: ['./st-page-title.component.scss'],
+  styleUrls: ['./st-page-title.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StPageTitleComponent implements OnInit {

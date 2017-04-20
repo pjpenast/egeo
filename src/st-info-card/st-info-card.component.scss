@@ -1,150 +1,55 @@
-@import '../../node_modules/@stratio/egeo-ui-base/utils/typography';
-@import '../../node_modules/@stratio/egeo-ui-base/utils/colors';
-
-$st-print---info-card: true !default;
-$st-info-card---margin: 10px 0;
-$st-info-card---background-color: egeo-get-color(n2);
-$st-info-card---min-height: 130px;
-$st-info-card---min-width: 288px;
-$st-info-card---float: left;
-$st-info-card---font-family: egeo-get-font(body);
-$st-info-card---padding: 18px;
-$st-info-card---display: block;
-$st-info-card---position: relative;
-
-$st-info-card--hover---background-color: rgba(egeo-get-color(a1), 0.2);
-$st-info-card--hover---cursor: pointer;
-$st-info-card--hover__arrow---visibility: visible;
-$st-info-card--hover__arrow---margin-right: 0;
-
-$st-info-card__photo-div---width: 20%;
-$st-info-card__photo-div---border: 1px solid egeo-get-color(n3);
-$st-info-card__photo-div---display: inline-block;
-
-$st-info-card__photo---width: 100%;
-
-$st-info-card__text-div---padding-left: 12px;
-$st-info-card__text-div---line-height: 20px;
-$st-info-card__text-div---line-count: 2;
-$st-info-card__text-div---position: relative;
-$st-info-card__text-div---width: 76%;
-$st-info-card__text-div---height: 100%;
-$st-info-card__text-div---vertical-align: top;
-$st-info-card__text-div---display: inline-block;
-
-$st-info-card__title---font-size: 1.24rem;
-$st-info-card__title---line-height: 30px;
-$st-info-card__title---color: egeo-get-color(n9);
-$st-info-card__title---font-weight: egeo-get-font-weight(light);
-$st-info-card__title---margin: 0px 0 6px 0;
-$st-info-card__title---overflow: hidden;
-$st-info-card__title---text-overflow: ellipsis;
-
-$st-info-card__description---font-size: 14px;
-$st-info-card__description---color: egeo-get-color(n6);
-$st-info-card__description---text-align: justify;
-$st-info-card__description---overflow: hidden;
-$st-info-card__description---margin-bottom: 0;
-
-$st-info-card__arrow---font-size: 17px;
-$st-info-card__arrow---position: absolute;
-$st-info-card__arrow---text-align: right;
-$st-info-card__arrow---width: 100%;
-$st-info-card__arrow---right: 20px;
-$st-info-card__arrow---bottom: 0;
-$st-info-card__arrow---margin-right: 40px;
-$st-info-card__arrow---transition: all 0.2s;
-$st-info-card__arrow---margin-bottom: 8px;
-$st-info-card__arrow---font-family: monospace;
-$st-info-card__arrow---color: egeo-get-color(a1);
-$st-info-card__arrow---visibility: hidden;
-
-@mixin st-info-card() {
-  margin: $st-info-card---margin;
-  background-color: $st-info-card---background-color;
-  font-family: $st-info-card---font-family;
-  padding: $st-info-card---padding;
-  display: $st-info-card---display;
-  position: $st-info-card---position;
-  min-height: 115px;
-
-  &:hover {
-    background-color: $st-info-card--hover---background-color;
-    cursor: $st-info-card--hover---cursor;
-    .st-info-card__arrow {
-      visibility: $st-info-card--hover__arrow---visibility;
-      margin-right: $st-info-card--hover__arrow---margin-right;
-    }
-  }
-  &__photo-div {
-    border: $st-info-card__photo-div---border;
-    height: $st-info-card__photo-div---width;
-    width: $st-info-card__photo-div---width;
-    display: $st-info-card__photo-div---display;
-  }
-
-  &__photo {
-    width: $st-info-card__photo---width;
-    max-height: 140px;
-  }
-
-  &__text-div {
-    width: $st-info-card__text-div---width;
-    height: $st-info-card__text-div---height;
-    padding-left: $st-info-card__text-div---padding-left;
-    position: $st-info-card__text-div---position;
-    display: $st-info-card__text-div---display;
-    vertical-align: $st-info-card__text-div---vertical-align;;
-  }
-
-  &__title {
-    font-size: $st-info-card__title---font-size;
-    line-height: $st-info-card__title---line-height;
-    max-height: $st-info-card__title---line-height;
-    color: $st-info-card__title---color;
-    font-weight: $st-info-card__title---font-weight;
-    overflow: $st-info-card__title---overflow;
-    text-overflow: $st-info-card__title---text-overflow;
-    margin: 0;
-  }
-
-  &__description {
-    font-size: $st-info-card__description---font-size;
-    color: $st-info-card__description---color;
-    line-height: $st-info-card__text-div---line-height;
-    max-height: $st-info-card__text-div---line-height * $st-info-card__text-div---line-count;
-    text-align: $st-info-card__description---text-align;
-    overflow: $st-info-card__description---overflow;
-    margin-bottom: $st-info-card__description---margin-bottom;
-  }
-
-  &__arrow {
-    font-size: $st-info-card__arrow---font-size;
-    position: $st-info-card__arrow---position;
-    text-align: $st-info-card__arrow---text-align;
-    width: $st-info-card__arrow---width;
-    right: $st-info-card__arrow---right;
-    bottom: $st-info-card__arrow---bottom;
-    margin-right: $st-info-card__arrow---margin-right;
-    transition: $st-info-card__arrow---transition;
-    margin-bottom: $st-info-card__arrow---margin-bottom;
-    font-family: $st-info-card__arrow---font-family;
-    color: $st-info-card__arrow---color;
-    visibility: $st-info-card__arrow---visibility;
-    &:before {
-      content: '\e605';
-      font-family: egeo-get-font(icon);
-    }
-  }
-
+.st-info-card {
+   margin: 10px 0;
+   padding: 18px;
+   display: block;
+   position: relative;
+   min-height: 115px;
 }
 
-@if ($st-print---info-card) {
-  :host {
-    display: block;
-  }
+.st-info-card__photo-div {
+   height: 20%;
+   width: 20%;
+   display: inline-block;
+}
 
-  .st-info-card {
-    @include st-info-card;
-  }
+.st-info-card__photo {
+   width: 100%;
+   max-height: 140px;
+}
+
+.st-info-card__text-div {
+   width: 76%;
+   height: 100%;
+   padding-left: 12px;
+   position: relative;
+   display: inline-block;
+   vertical-align: top;
+   ;
+}
+
+.st-info-card__title {
+   line-height: 30px;
+   max-height: 30px;
+   overflow: hidden;
+   margin: 0;
+}
+
+.st-info-card__description {
+   line-height: 20px;
+   max-height: undefined;
+   overflow: hidden;
+   margin-bottom: 0;
+}
+
+.st-info-card__arrow {
+   position: absolute;
+   text-align: right;
+   width: 100%;
+   right: 20px;
+   bottom: 0;
+   margin-bottom: 8px;
+}
+
+ :host {
+   display: block;
 }

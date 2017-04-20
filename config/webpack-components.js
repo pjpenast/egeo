@@ -1,13 +1,10 @@
-const helpers = require('./helpers'),
-   webpack = require('webpack');
+const helpers = require('./helpers');
+const webpack = require('webpack');
 
 /**
  * Webpack Plugins
  */
-const ProvidePlugin = require('webpack/lib/ProvidePlugin');
-const DefinePlugin = require('webpack/lib/DefinePlugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const NormalModuleReplacementPlugin = require('webpack/lib/NormalModuleReplacementPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 
@@ -21,42 +18,42 @@ module.exports = {
    entry: './src/index.ts',
 
    output: {
-      path: helpers.root('dist','bundle'),
+      path: helpers.root('dist', 'bundle'),
       filename: 'egeo.js',
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'umd',
       library: 'egeo'
    },
 
    // require those dependencies but don't bundle them
-   externals: [/^\@angular\//, /^rxjs\//, /^lodash/],
+   externals: [/^\@angular\//, /^rxjs\//, /^lodash/, /^angular2-virtual-scroll/],
 
    module: {
       rules: [{
-         test: /\.ts$/,
-         use: [{
-            loader: 'awesome-typescript-loader?declaration=false',
-            options: {
-               tsconfig: 'tsconfig.lib.json'
-            }
+            test: /\.ts$/,
+            use: [{
+                  loader: 'awesome-typescript-loader?declaration=false',
+                  options: {
+                     tsconfig: 'tsconfig.lib.json'
+                  }
+               },
+               {
+                  loader: 'angular2-template-loader'
+               }
+            ],
+            exclude: [/\.(spec|e2e)\.ts$/]
          },
          {
-            loader: 'angular2-template-loader'
+            test: /\.html$/,
+            use: ['raw-loader']
+         },
+         {
+            test: /\.css$/,
+            use: ['to-string-loader', 'css-loader', 'postcss-loader']
+         },
+         {
+            test: /\.scss$/,
+            use: ['to-string-loader', 'css-loader', 'postcss-loader', 'sass-loader']
          }
-         ],
-         exclude: [/\.(spec|e2e)\.ts$/]
-      },
-      {
-         test: /\.html$/,
-         use: ['raw-loader']
-      },
-      {
-         test: /\.css$/,
-         use: ['to-string-loader', 'css-loader']
-      },
-      {
-         test: /\.scss$/,
-         use: ['to-string-loader', 'css-loader', 'sass-loader']
-      }
       ]
    },
 

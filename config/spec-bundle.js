@@ -28,9 +28,6 @@ if (!COMPONENT_ENV) {
   var testContext = require.context('../src' + '/' + COMPONENT_ENV, true, /\.spec\.ts/);
 }
 
-
-
-
 function requireAll(requireContext) {
   return requireContext.keys().map(requireContext);
 }

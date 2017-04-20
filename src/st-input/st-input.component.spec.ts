@@ -171,7 +171,7 @@ describe('StInputComponent in reactive form', () => {
       reactiveFixture.detectChanges();
 
       // Required
-      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.error-message'));
+      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('This field is required');
@@ -181,7 +181,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('The field min length is: 3');
@@ -192,7 +192,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('The field max length is: 20');
@@ -203,7 +203,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('Invalid value');
@@ -220,7 +220,7 @@ describe('StInputComponent in reactive form', () => {
       reactiveFixture.detectChanges();
 
       // Required
-      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.error-message'));
+      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual(genericError);
@@ -230,7 +230,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual(genericError);
@@ -241,7 +241,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual(genericError);
@@ -252,7 +252,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual(genericError);
@@ -268,7 +268,7 @@ describe('StInputComponent in reactive form', () => {
       reactiveFixture.detectChanges();
 
       // Required
-      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.error-message'));
+      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('');
@@ -278,7 +278,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('');
@@ -289,7 +289,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('');
@@ -300,7 +300,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('');
@@ -339,7 +339,7 @@ describe('StInputComponent in reactive form', () => {
       reactiveFixture.detectChanges();
 
       // Required
-      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.error-message'));
+      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('');
@@ -350,7 +350,7 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'input');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeNull();
    });
 
@@ -365,7 +365,7 @@ describe('StInputComponent in reactive form', () => {
       reactiveFixture.detectChanges();
 
       // Required
-      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.error-message'));
+      let errorMessage: DebugElement = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect(errorMessage.nativeElement).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('error');
@@ -373,13 +373,13 @@ describe('StInputComponent in reactive form', () => {
       dispatchEvent(htmlInput, 'focus');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeNull();
 
       dispatchEvent(htmlInput, 'blur');
       reactiveFixture.detectChanges();
 
-      errorMessage = reactiveFixture.debugElement.query(By.css('.error-message'));
+      errorMessage = reactiveFixture.debugElement.query(By.css('.st-input-error-message'));
       expect(errorMessage).toBeDefined();
       expect((<HTMLSpanElement>errorMessage.nativeElement).textContent).toEqual('error');
    });

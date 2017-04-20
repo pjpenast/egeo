@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
-import { Observable, Observer } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { Observer } from 'rxjs/Observer';
 import { EgeoResolverKeys, TranslateableElement, TranslateServiceType } from './egeo-resolve-model';
 import { EgeoResolveService } from './egeo-resolve.service';
 

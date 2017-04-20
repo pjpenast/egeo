@@ -1,11 +1,11 @@
-<section class="st-info-card" [attr.id]="generateQaTag()">
-  <div class="st-info-card__photo-div">
+<section class="st-info-card sth-info-card" [attr.id]="generateQaTag()">
+  <div class="st-info-card__photo-div sth-info-card__photo-div">
     <img class="st-info-card__photo img-responsive" src="{{photo}}" (error)="onPhotoError()">
   </div>
   <div class="st-info-card__text-div">
-    <h1 class="st-info-card__title">{{title}}</h1>
-    <p class="st-info-card__description">{{description}}</p>
+    <h1 class="st-info-card__title sth-info-card__title">{{title}}</h1>
+    <p class="st-info-card__description sth-info-card__description">{{description}}</p>
 
   </div>
-  <p class="st-info-card__arrow"></p>
+  <p class="st-info-card__arrow sth-info-card__arrow"></p>
 </section>

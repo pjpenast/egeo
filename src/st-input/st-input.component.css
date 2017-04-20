@@ -1,0 +1,95 @@
+.st-input-remove-default {
+   outline: none;
+   border: none;
+   width: 100%;
+}
+
+.st-input-container {
+   padding-bottom: 6px;
+   position: relative;
+}
+
+.st-input-container ::placeholder {
+   padding-left: 3px;
+}
+
+.st-input-container :invalid {
+   box-shadow: none;
+}
+
+.st-input-container .st-input-remove-default {
+   padding-left: 3px;
+   height: 25px;
+}
+
+.st-input-container .st-input-title {
+   padding: 0;
+   position: relative;
+   margin-bottom: 7px;
+   display: block;
+   float: left;
+   width: 100%;
+}
+
+.st-input-container .st-input-normal-bar {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   bottom: -2px;
+}
+
+.st-input-container .st-input-normal-bar::before,
+.st-input-container .st-input-normal-bar::after {
+   content: "";
+   height: 2px;
+   width: 0;
+   bottom: 0;
+   position: absolute;
+}
+
+.st-input-container .st-input-normal-bar::before {
+   left: 50%;
+}
+
+.st-input-container .st-input-normal-bar::after {
+   right: 50%;
+}
+
+.st-input-container .st-input-error-bar {
+   position: absolute;
+   width: 100%;
+   left: 0;
+   bottom: -2px;
+}
+
+.st-input-container .st-input-error-bar::before,
+.st-input-container .st-input-error-bar::after {
+   content: "";
+   height: 2px;
+   width: 0;
+   bottom: 0;
+   position: absolute;
+}
+
+.st-input-container .st-input-error-bar::before {
+   left: 50%;
+}
+
+.st-input-container .st-input-error-bar::after {
+   right: 50%;
+}
+
+.st-input-container .st-input-remove-default:focus~.st-input-bar:before,
+.st-input-container .st-input-remove-default:focus~.st-input-bar:after {
+   width: 50%;
+}
+
+.st-input {
+   width: 100%;
+   min-height: 90px;
+   height: 90px;
+}
+
+.st-input-error-layout {
+   height: 15px;
+}

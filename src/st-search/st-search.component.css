@@ -1,0 +1,28 @@
+.st-search-input {
+   outline: none;
+   border: none;
+}
+
+.st-search {
+   position: relative;
+   display: flex;
+   min-width: 245px;
+}
+
+.st-search :invalid {
+   box-shadow: none;
+}
+
+.st-search .st-search-input {
+   height: 35px;
+   padding-left: 12px;
+   padding-right: 40px;
+   width: 100%;
+}
+
+.st-search-icon {
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   cursor: pointer;
+}

@@ -27,7 +27,7 @@ describe('StTooltip', () => {
 
       fixture.detectChanges();
 
-      expect(nativeElement.querySelector('.st-tooltip .tooltip-content span').innerHTML).toEqual(fakeText);
+      expect(nativeElement.querySelector('.st-tooltip .st-tooltip-content span').innerHTML).toEqual(fakeText);
    });
 
    it('It can be configured to be displayed and hidden when user clicks on its associated content', () => {
@@ -35,17 +35,17 @@ describe('StTooltip', () => {
       component.isActive = false;
       component.text = fakeText;
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').click();
+      nativeElement.querySelector('.st-tooltip .st-tooltip-content').click();
       fixture.detectChanges();
 
       expect(component.isActive).toBeTruthy();
-      expect(nativeElement.querySelector('.st-tooltip .tooltip-content.on-click')).toBeDefined();
+      expect(nativeElement.querySelector('.st-tooltip .st-tooltip-content.on-click')).toBeDefined();
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').click();
+      nativeElement.querySelector('.st-tooltip .st-tooltip-content').click();
       fixture.detectChanges();
 
       expect(component.isActive).toBeFalsy();
-      expect(nativeElement.querySelector('.st-tooltip .tooltip-content.on-click')).toBe(null);
+      expect(nativeElement.querySelector('.st-tooltip .st-tooltip-content.on-click')).toBe(null);
    });
 
    it('It can be configured to be displayed and hidden when user puts the mouse on its associated content', () => {
@@ -53,14 +53,14 @@ describe('StTooltip', () => {
       component.isActive = false;
       component.text = fakeText;
 
-      expect(nativeElement.querySelector('.st-tooltip .tooltip-content.on-hover')).toBeDefined();
+      expect(nativeElement.querySelector('.st-tooltip .st-tooltip-content.on-hover')).toBeDefined();
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseenter'));
+      nativeElement.querySelector('.st-tooltip .st-tooltip-content').dispatchEvent(new Event('mouseenter'));
 
       fixture.detectChanges();
       expect(component.isActive).toBeTruthy();
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseleave'));
+      nativeElement.querySelector('.st-tooltip .st-tooltip-content').dispatchEvent(new Event('mouseleave'));
       fixture.detectChanges();
 
       expect(component.isActive).toBeFalsy();
@@ -71,14 +71,14 @@ describe('StTooltip', () => {
       component.isActive = false;
       component.text = fakeText;
 
-      expect(nativeElement.querySelector('.st-tooltip .tooltip-content.on-hover')).toBeNull();
+      expect(nativeElement.querySelector('.st-tooltip .st-tooltip-content.on-hover')).toBeNull();
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseenter'));
+      nativeElement.querySelector('.st-tooltip .st-tooltip-content').dispatchEvent(new Event('mouseenter'));
 
       fixture.detectChanges();
       expect(component.isActive).toBeFalsy();
 
-      nativeElement.querySelector('.st-tooltip .tooltip-content').dispatchEvent(new Event('mouseleave'));
+      nativeElement.querySelector('.st-tooltip .st-tooltip-content').dispatchEvent(new Event('mouseleave'));
       fixture.detectChanges();
 
       expect(component.isActive).toBeFalsy();

@@ -11,7 +11,9 @@ module.exports = function (config) {
          './config/spec-bundle.js'
       ],
       exclude: [],
-      preprocessors: { './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap'] },
+      preprocessors: {
+         './config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap']
+      },
 
       webpack: testWebpackConfig,
 
@@ -37,9 +39,11 @@ module.exports = function (config) {
          'lcovonly': './target/lcovUT.info'
       },
 
-      webpackMiddleware: { stats: 'errors-only' },
+      webpackMiddleware: {
+         stats: 'errors-only'
+      },
 
-      reporters: ['mocha', 'coverage', 'remap-coverage'],
+      reporters: ['mocha', 'junit', 'coverage', 'remap-coverage'],
       port: 9876,
       colors: true,
       logLevel: config.LOG_INFO,
@@ -48,6 +52,12 @@ module.exports = function (config) {
 
       phantomJsLauncher: {
          exitOnResourceError: true
+      },
+
+      junitReporter: {
+         outputDir: './target/surefire-reports', // results will be saved as $outputDir/$browserName.xml
+         outputFile: undefined, // if included, results will be saved as $outputDir/$browserName/$outputFile
+         suite: ''
       },
       // to avoid DISCONNECTED messages
       browserDisconnectTimeout: 30000, // default 2000

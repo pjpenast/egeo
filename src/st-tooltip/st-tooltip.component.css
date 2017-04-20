@@ -1,0 +1,44 @@
+.st-tooltip-content {
+   position: relative;
+   display: block;
+   cursor: pointer;
+   width: 100%;
+   float: left;
+}
+
+.st-tooltip-content-text {
+   position: absolute;
+   width: 100%;
+   max-width: 240px;
+   padding: 6px;
+   line-height: 20px;
+   visibility: hidden;
+   border-radius: 0;
+}
+
+.st-tooltip-content-text:before {
+   content: '';
+   position: absolute;
+   top: 100%;
+   left: 12px;
+   width: 0;
+   height: 0;
+}
+
+.st-tooltip-content-text:after {
+   content: '';
+   position: absolute;
+   top: 100%;
+   left: 13px;
+   width: 0;
+   height: 0;
+}
+
+.st-tooltip-content:hover.on-hover .st-tooltip-content-text,
+.st-tooltip-content.on-click .st-tooltip-content-text {
+   visibility: visible;
+   opacity: 1;
+   bottom: 25px;
+   left: 0;
+   z-index: 999;
+}

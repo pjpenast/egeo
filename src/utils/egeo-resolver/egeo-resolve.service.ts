@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/map';
 
 import { EgeoResolverKeys, TranslateServiceType } from './egeo-resolve-model';
 

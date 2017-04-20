@@ -1,6 +1,6 @@
-<div class="st-input">
-   <div class="input-container" [ngClass]="{disabled: isDisabled, error: showError()}">
-      <label class="title" [ngClass]="{error: showError(), active: focus, disabled: isDisabled}" [attr.for]="name">
+<div class="st-input sth-input">
+   <div class="st-input-container sth-input-container" [ngClass]="{disabled: isDisabled, error: showError()}">
+      <label class="st-input-title sth-input-title" [ngClass]="{error: showError(), active: focus, disabled: isDisabled}" [attr.for]="name">
          <st-tooltip *ngIf="contextualHelp" [text]="contextualHelp" [showOnClick]="true" [qaTag]="qaTag + '-contextual-help'">
             <span>{{label}}</span>
             <span class="icon-help2"></span>
@@ -8,14 +8,14 @@
          <span *ngIf="!contextualHelp">{{label}}</span>
       </label>
       <input #input (focus)="onFocus($event)" (focusout)="onFocusOut($event)" (blur)="onFocusOut($event)" [formControl]="internalControl"
-         class="remove-default-style" [ngClass]="{disabled: isDisabled}"
+         class="st-input-remove-default sth-input-remove-default" [ngClass]="{disabled: isDisabled}"
          [placeholder]="placeholder" [name]="name" [attr.type]="internalType" [attr.maxlength]="maxLength" [attr.id]="qaTag">
 
-      <span class="bar" [ngClass]="getBarType()"></span>
+      <span class="st-input-bar" [ngClass]="getBarType()"></span>
    </div>
-   <div class="error-layout">
+   <div class="st-input-error-layout">
       <div *ngIf="showError()">
-         <span class="error-message">{{errorMessage}}</span>
+         <span class="st-input-error-message sth-input-error-message">{{errorMessage}}</span>
       </div>
    </div>
 </div>

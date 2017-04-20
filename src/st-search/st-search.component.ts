@@ -1,11 +1,13 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
+
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
    selector: 'st-search',
    templateUrl: './st-search.component.html',
-   styleUrls: ['./st-search.component.scss'],
+   styleUrls: ['./st-search.component.css'],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
 

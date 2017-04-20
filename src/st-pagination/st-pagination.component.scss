@@ -1,9 +1,6 @@
-@import '../../node_modules/@stratio/egeo-ui-base/utils/typography';
-@import '../../node_modules/@stratio/egeo-ui-base/utils/colors';
-
 .pagination {
    display: flex;
-   justify-content: space-around; 
+   justify-content: space-around;
    align-items: center;
    padding: 20px 5px;
 
@@ -21,7 +18,7 @@
          padding: 0 15px;
       }
    }
-   
+
    st-button:first-child {
       margin: 0 5px;
    }

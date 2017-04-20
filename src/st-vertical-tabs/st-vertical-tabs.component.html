@@ -1,13 +1,13 @@
 <section class="st-vertical-tabs">
   <ul class="st-vertical-tabs__list">
-    <li *ngFor="let option of options; let i = index;" class="st-vertical-tabs__option">
-      <a class="st-vertical-tabs__option__text" (click)="activateOption(option)"
-         [ngClass]="{'st-vertical-tabs__option--active': isActive(option)}"
+    <li *ngFor="let option of options; let i = index;" class="st-vertical-tabs__option sth-vertical-tabs__option">
+      <a class="st-vertical-tabs__option__text sth-vertical-tabs__option__text" (click)="activateOption(option)"
+         [ngClass]="{'sth-vertical-tabs__option--active': isActive(option)}"
          [attr.id]="qaTag + '-tab-' + i" href="javascript:void(0)">{{option}}</a>
     </li>
   </ul>
-  <div class="st-vertical-tabs__line">
-    <span class="st-vertical-tabs__line__arrow"
+  <div class="st-vertical-tabs__line sth-vertical-tabs__line">
+    <span class="st-vertical-tabs__line__arrow sth-vertical-tabs__line__arrow"
           [style.margin-top]="activeOptionIndex * arrowMovement + arrowMargin + 'px'">
     </span>
   </div>
