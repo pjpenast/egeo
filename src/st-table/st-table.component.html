@@ -1,0 +1,15 @@
+<table class='sth-table' [attr.id]='qaTag'>
+   <thead>
+   <tr [ngClass]="{'sth-table__header--hidden': !header}" class='sth-table__header'>
+      <th *ngFor='let field of fields' class='sth-table__header-item' [ngClass]="{'sth-table__header-item--selected': isSortedByField(field)}" (click)="onChangeOrder(field)">
+         <label class='sth-table__header-text'>{{field}}
+            <i *ngIf="sortable" class='sth-table__order-arrow'
+               [ngClass]="getHeaderItemClass(field)">
+            </i>
+         </label>
+      </th>
+      <th></th> <!-- For hover cell -->
+   </tr>
+   </thead>
+   <ng-content></ng-content>
+</table>

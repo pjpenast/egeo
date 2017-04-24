@@ -1,0 +1,21 @@
+:host {
+   position: relative;
+   width: 100%;
+   height: 55px;
+}
+
+:host(.sth-table-row--compacted)  {
+   height: 45px;
+}
+
+.hover-menu {
+   width: 100%;
+   float: right;
+   opacity: 0;
+   margin: 5px;
+   text-align: right;
+}
+
+.hover-menu--show {
+   opacity: 1 !important;
+}

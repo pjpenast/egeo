@@ -1,0 +1,28 @@
+.sth-table {
+   width: 100%;
+   height: 100%;
+}
+
+.sth-table__header--hidden {
+   visibility: hidden;
+}
+
+.sth-table__header-item {
+   cursor: pointer;
+   padding: 0 20px;
+   text-transform: capitalize;
+}
+
+.sth-table__header-text {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-items: center;
+   margin-bottom: 6px;
+   justify-content: flex-start;
+   cursor: pointer;
+}
+
+.sth-table__order-arrow {
+   padding-left: 9px;
+}

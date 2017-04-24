@@ -17,6 +17,7 @@ import { StRadioMenuModule } from './st-radio-menu';
 import { StSearchModule } from './st-search';
 import { StSpinnerModule } from './st-spinner';
 import { StTabBoxModule } from './st-tab-box';
+import { StTableModule } from './st-table';
 import { StToggleButtonsModule } from './st-toggle-buttons';
 import { StTooltipModule } from './st-tooltip';
 import { StTwoListSelectionModule } from './st-two-list-selection';
@@ -45,5 +46,6 @@ export const DECLARATIONS: any[] = [
    StVerticalTabsModule,
    StPaginationModule,
    StModalModule,
+   StTableModule,
    StRadioModule
 ];
