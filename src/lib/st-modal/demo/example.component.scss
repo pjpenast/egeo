@@ -1,0 +1,25 @@
+@import '../../../../node_modules/@stratio/egeo-ui-base/utils/typography';
+@import '../../../../node_modules/@stratio/egeo-ui-base/utils/colors';
+
+.st-modal-example-test-class-list {
+   list-style-position: inside;
+}
+
+.st-modal-example-test-class-h1 {
+   font-size: 23px;
+}
+
+.st-live-example {
+   padding: 30px;
+}
+
+.st-live-example-title {
+   font-family: egeo-get-font(heading);
+   font-size: egeo-get-font-size(head_medium);
+   margin-bottom: 15px;
+}
+
+st-button {
+   margin-bottom: 10px;
+   display: block;
+}

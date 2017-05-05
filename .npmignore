@@ -13,7 +13,9 @@ target
 ## Project
 #################
 .github
-config
+scripts
+test
+src
 web
 temp
 
@@ -22,12 +24,11 @@ temp
 .htmlhintrc
 .npmrc
 .sass-lint.yml
+gulpfile.js
 Jenkinsfile
 karma.conf.js
 pom.xml
-tsconfig.*
 tslint.json
-webpack.config.js
 yarn.lock
 
 #################

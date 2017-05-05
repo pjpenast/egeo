@@ -1,0 +1,23 @@
+@import '../../../../node_modules/@stratio/egeo-ui-base/utils/colors';
+
+.item {
+   display: flex;
+   min-width: 100%;
+   flex-direction: row;
+   flex-wrap: nowrap;
+   align-items: center;
+   height: 35px;
+   line-height: 35px;
+   width: 100%;
+   border-bottom: 1px solid egeo-get-color(n3);
+}
+
+.check {
+   margin-right: 10px;
+}
+
+.label {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   flex-grow: 1;
+}
