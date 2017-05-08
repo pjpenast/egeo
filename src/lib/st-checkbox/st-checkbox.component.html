@@ -1,0 +1,21 @@
+<label class="st-checkbox sth-checkbox" [ngClass]="{'disabled' : disabled}">
+   <div class="sth-checkbox-container">
+      <input
+         type="checkbox"
+         [id]="qaTag"
+         [name]="name"
+         [required]="required"
+         [checked]="checked"
+         [disabled]="disabled"
+         [value]="value"
+         [hidden]="true"
+         [readonly]="readonly"
+         (click)="handleClick()"
+         (change)="handleChange()" />
+   </div>
+
+   <div class="custom-checkbox sth-checkbox-custom" [ngClass]="{'icon-check2' : checked}"></div>
+
+   <span class="sth-checkbox-label label"><ng-content></ng-content></span>
+
+</label>

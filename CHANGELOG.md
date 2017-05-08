@@ -2,7 +2,7 @@
 
 ## 2.1.0 (upcoming)
 
-* Pending changelog
+* Add st-checkbox component
 
 ## 2.0.2 (May 05, 2017)
 

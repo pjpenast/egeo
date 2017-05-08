@@ -1,0 +1,26 @@
+@import '../../../node_modules/@stratio/egeo-ui-base/utils/colors';
+@import '../../../node_modules/@stratio/egeo-ui-base/utils/typography';
+@import '../../../node_modules/@stratio/egeo-ui-base/vendors/sanitize';
+
+
+.st-checkbox {
+  cursor: pointer;
+
+  .label {
+    padding-left: 15px;
+  }
+
+  .custom-checkbox {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+
+      &:before {
+        position: absolute;
+        top: -3px;
+        left: -2px;
+      }
+  }
+}

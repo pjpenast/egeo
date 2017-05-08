@@ -128,3 +128,5 @@ export { StTwoListSelection } from './st-two-list-selection/st-two-list-selectio
 
 // Vertical tabs
 export { StVerticalTabsModule } from './st-vertical-tabs/st-vertical-tabs.module';
+
+export { StCheckboxModule } from './st-checkbox/st-checkbox.module';

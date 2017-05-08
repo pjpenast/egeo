@@ -1,5 +1,5 @@
 import { PipesModule } from './pipes/pipes.module';
-import { StBreadcrumbsModule }  from './st-breadcrumbs/st-breadcrumbs.module';
+import { StBreadcrumbsModule } from './st-breadcrumbs/st-breadcrumbs.module';
 import { StButtonModule } from './st-button/st-button.module';
 import { StDropdownModule } from './st-dropdown/st-dropdown.module';
 import { StDropdownMenuModule } from './st-dropdown-menu/st-dropdown-menu.module';
@@ -25,6 +25,7 @@ import { StTooltipModule } from './st-tooltip/st-tooltip.module';
 import { StTwoListSelectionModule } from './st-two-list-selection/st-two-list-selection.module';
 import { StVerticalTabsModule } from './st-vertical-tabs/st-vertical-tabs.module';
 import { StSwitchModule } from './st-switch/st-switch.module';
+import { StCheckboxModule } from './st-checkbox/st-checkbox.module';
 
 export const DECLARATIONS: any[] = [
    PipesModule,
@@ -53,5 +54,6 @@ export const DECLARATIONS: any[] = [
    StRadioModule,
    StSwitchModule,
    StTableModule,
-   StTextareaModule
+   StTextareaModule,
+   StCheckboxModule
 ];
