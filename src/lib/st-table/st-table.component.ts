@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 
 import { CheckRequired, Required } from '../decorators/require-decorators';
 import { Order, ORDER_TYPE } from './shared/order';
-import { StTableHeader } from "./shared/table-header.interface";
+import { StTableHeader } from './shared/table-header.interface';
 
 @CheckRequired()
 @Component({

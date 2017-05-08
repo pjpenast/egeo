@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Event, Router } from '@angular/router';
 
-import { StHeaderModel, StHeaderUserMenuModel, StSubMenuModel } from './shared';
+import { StHeaderModel, StHeaderUserMenuModel, StSubMenuModel } from './st-header.model';
 
 @Component({
    selector: 'st-header',

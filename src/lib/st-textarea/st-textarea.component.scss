@@ -1,11 +1,11 @@
 .st-textarea-remove-default {
-   outline: none;
-   border: none;
    min-width: 100%;
 }
 
-.st-textarea-container {
-   position: relative;
+textarea {
+   vertical-align: bottom;
+   outline: none;
+   border: none;
 }
 
 .st-textarea-container ::placeholder {
@@ -35,7 +35,7 @@
    position: absolute;
    width: 100%;
    left: 0;
-   bottom: -2px;
+   bottom: 18px;
 }
 
 .st-textarea-container .st-textarea-normal-bar::before,
@@ -59,7 +59,7 @@
    position: absolute;
    width: 100%;
    left: 0;
-   bottom: -2px;
+   bottom: 18px;
 }
 
 .st-textarea-container .st-textarea-error-bar::before,
@@ -85,9 +85,9 @@
 }
 
 .st-textarea {
-   width: 100%;
-   height: 100%;
-   display: flex;
+   min-width: 100%;
+   min-height: 100%;
+   display: inline-block;
 }
 
 .st-textarea-error-layout {
@@ -98,6 +98,6 @@
 
 :host {
    position: relative;
-   display: block;
+   display: inline-block;
    padding-bottom: 20px;
 }

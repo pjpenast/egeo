@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { Order, ORDER_TYPE } from './shared/order';
 import { StTableComponent } from './st-table.component';
-import { StTableHeader } from "./shared/table-header.interface";
+import { StTableHeader } from './shared/table-header.interface';
 
 let fixture: ComponentFixture<StTableComponent>;
 let component: StTableComponent;

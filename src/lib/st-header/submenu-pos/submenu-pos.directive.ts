@@ -1,15 +1,15 @@
-import { Directive, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnChanges, AfterViewInit, Output, SimpleChange } from '@angular/core';
 
 @Directive({ selector: '[submenuPos]' })
 
-export class SubmenuPosDirective implements OnChanges {
+export class SubmenuPosDirective implements OnChanges, AfterViewInit {
 
    @Input() submenuPosIsActive: boolean;
    @Output() positionChange: EventEmitter<number> = new EventEmitter<number>();
 
    constructor(private el: ElementRef) { }
 
-   ngOnInit(): void {
+   ngAfterViewInit(): void {
       if (this.submenuPosIsActive) {
          this.positionChange.emit(this.el.nativeElement.getBoundingClientRect().left);
       }

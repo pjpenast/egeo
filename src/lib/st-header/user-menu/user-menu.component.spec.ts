@@ -7,7 +7,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UserMenuComponent } from './user-menu.component';
 
 // Component
-import { StHeaderUserMenuModel } from './user-menu.model';
+import { StHeaderUserMenuModel } from '../st-header.model';
 
 
 let comp: UserMenuComponent;

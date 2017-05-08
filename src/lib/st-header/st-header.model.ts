@@ -1,4 +1,4 @@
-import { TranslateableElement } from '../../utils/egeo-resolver/egeo-resolve-model';
+import { TranslateableElement } from '../utils/egeo-resolver/egeo-resolve-model';
 
 export interface StHeaderModel {
    icon?: string;
@@ -29,4 +29,16 @@ export interface StSubMenuModelSchema {
    label: TranslateableElement;
    link: string;
    isActive: boolean;
+}
+
+export interface StHeaderUserMenuModel {
+   logoutLabel: string;
+   userName: string;
+   logoutPath: string;
+}
+
+export interface StHeaderUserMenuModelSchema {
+   logoutLabel: TranslateableElement;
+   userName: string;
+   logoutPath: string;
 }

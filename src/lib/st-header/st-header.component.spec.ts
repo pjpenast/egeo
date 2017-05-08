@@ -8,16 +8,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { StHeaderComponent } from './st-header.component';
 
 // Other components
-import { AppNameComponent } from './shared/app-name/app-name.component';
-import { NavigationLinksComponent } from './shared/navigation-links/navigation-links.component';
-import { StHeaderBehaviorDirective } from './shared/st-header-behavior/header-behavior.directive';
-import { SubmenuComponent } from './shared/submenu/submenu.component';
-import { SubmenuPosDirective } from './shared/submenu-pos/submenu-pos.directive';
-import { UserMenuComponent } from './shared/user-menu/user-menu.component';
+import { AppNameComponent } from './app-name/app-name.component';
+import { NavigationLinksComponent } from './navigation-links/navigation-links.component';
+import { StHeaderBehaviorDirective } from './st-header-behavior/header-behavior.directive';
+import { SubmenuComponent } from './submenu/submenu.component';
+import { SubmenuPosDirective } from './submenu-pos/submenu-pos.directive';
+import { UserMenuComponent } from './user-menu/user-menu.component';
 
 // Models
-import { StHeaderModel } from './shared/st-header.model';
-import { StHeaderUserMenuModel } from './shared/user-menu/user-menu.model';
+import { StHeaderUserMenuModel, StHeaderModel } from './st-header.model';
 
 
 @Component({
