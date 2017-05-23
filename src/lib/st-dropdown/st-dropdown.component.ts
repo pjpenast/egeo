@@ -121,17 +121,19 @@ export class StDropdownComponent extends EventWindowManager implements AfterView
    private findSelected(): void {
       if (this.isStDropdownItem(this.items)) {
          let item = this.items.find((object) => object.selected === true);
+
          if (item) {
             this.button = item.label;
             this.cd.markForCheck();
          }
-      } else {
-         let item = this.items.map((i: StDropDownMenuGroup) => {
-            return i.items.find((object) => object.selected === true);
-         });
+      } else if (this.items && this.items.length > 0) {
 
-         if (item) {
-            this.button = item[0].label;
+         let items = this.items.map((i: StDropDownMenuGroup) => {
+            return i.items.find((object) => object.selected === true);
+         }).filter((object) => object !== undefined);
+
+         if (items.length > 0) {
+            this.button = items[0].label;
             this.cd.markForCheck();
          }
       }
@@ -158,7 +160,7 @@ export class StDropdownComponent extends EventWindowManager implements AfterView
             if (element)
                element.selected = true;
          }
-      } else {
+      } else if (this.items && this.items.length > 0) {
 
          this.items.map((i: StDropDownMenuGroup) => {
             let itemSelected = i.items.find((object) => object.selected === true);
@@ -185,7 +187,7 @@ export class StDropdownComponent extends EventWindowManager implements AfterView
          if (this.isStDropdownItem(this.items)) {
             this.updateSelected();
             this.items[0].selected = true;
-         } else {
+         } else if (this.items && this.items.length > 0) {
 
             this.updateSelected();
             this.items.map((i: StDropDownMenuGroup) => {
