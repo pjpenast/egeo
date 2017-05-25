@@ -39,6 +39,12 @@ export class ListItemComponent {
    }
 
    get itemMode(): string {
+      let style: string = this.getModeStyle();
+      style += this.selected ? ' sth-two-list-selection__selected_item' : '';
+      return style;
+   }
+
+   getModeStyle(): string {
       return this.mode === 'normal' ? 'item-normal sth-two-list-selection__item-normal' :
          'item-compact sth-two-list-selection__item-compact';
    }
