@@ -43,6 +43,7 @@
   "dependencies": {
     "angular2-virtual-scroll": "0.1.5",
     "lodash": "4.17.4",
+    "popper.js": "^1.9.9",
     "reflect-metadata": "0.1.10"
   },
   "devDependencies": {
@@ -66,6 +67,7 @@
     "@types/jasmine": "2.5.47",
     "@types/lodash": "4.14.63",
     "@types/node": "7.0.13",
+    "@types/popper.js": "^1.8.1",
     "@types/run-sequence": "0.0.29",
     "autoprefixer": "6.7.7",
     "chalk": "1.1.3",

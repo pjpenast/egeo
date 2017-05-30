@@ -26,6 +26,7 @@ import { StTwoListSelectionModule } from './st-two-list-selection/st-two-list-se
 import { StVerticalTabsModule } from './st-vertical-tabs/st-vertical-tabs.module';
 import { StSwitchModule } from './st-switch/st-switch.module';
 import { StCheckboxModule } from './st-checkbox/st-checkbox.module';
+import { StPopModule } from './st-pop/st-pop.module';
 
 export const DECLARATIONS: any[] = [
    PipesModule,
@@ -55,5 +56,6 @@ export const DECLARATIONS: any[] = [
    StSwitchModule,
    StTableModule,
    StTextareaModule,
-   StCheckboxModule
+   StCheckboxModule,
+   StPopModule
 ];

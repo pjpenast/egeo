@@ -10,6 +10,7 @@
 ## 2.1.1 (May 29, 2017)
 
 * Bugfix #148 and #248
+* Add St-pop Component
 
 ## 2.1.0 (May 19, 2017)
 

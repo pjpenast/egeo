@@ -2,7 +2,7 @@
 export { EgeoModule } from './egeo.module';
 
 /**************************** UTILS AND OTHERS *****************************************/
-export { StEgeo, StRequired, StDeprecated} from './decorators/require-decorators';
+export { StEgeo, StRequired, StDeprecated } from './decorators/require-decorators';
 export { TranslateableElement, EgeoResolverKeys, TranslateServiceType } from './utils/egeo-resolver/egeo-resolve-model';
 export { EgeoResolveService } from './utils/egeo-resolver/egeo-resolve.service';
 export { EgeoUtils } from './utils/egeo-utils';
@@ -131,3 +131,4 @@ export { StTwoListSelection } from './st-two-list-selection/st-two-list-selectio
 export { StVerticalTabsModule } from './st-vertical-tabs/st-vertical-tabs.module';
 
 export { StCheckboxModule } from './st-checkbox/st-checkbox.module';
+export { StPopModule } from './st-pop/st-pop.module';
