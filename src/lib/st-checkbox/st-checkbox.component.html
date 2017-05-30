@@ -11,7 +11,7 @@
          [hidden]="true"
          [readonly]="readonly"
          (click)="handleClick()"
-         (change)="handleChange()" />
+         (change)="handleChange($event)" />
    </div>
 
    <div class="custom-checkbox sth-checkbox-custom" [ngClass]="{'icon-check2' : checked}"></div>

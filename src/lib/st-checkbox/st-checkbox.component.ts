@@ -33,17 +33,8 @@ export class StCheckboxComponent implements ControlValueAccessor {
    @Input() disabled: boolean;
    @Input() required: boolean;
    @Input() readonly: boolean;
+   @Input() value: any;
    @Output() change: EventEmitter<any> = new EventEmitter<any>();
-
-   @Input()
-   get value(): any {
-      return this._value;
-   }
-
-   set value(value: any) {
-      this._value = value;
-      this.onTouched();
-   }
 
    private _value: string;
    private _values: any;
@@ -62,60 +53,19 @@ export class StCheckboxComponent implements ControlValueAccessor {
    handleClick(): void {
       if (!this.readonly) {
          if (!this.disabled) {
-            this.checked = !this.checked;
-            this._changeDetectorRef.markForCheck();
+            this._checked = !this._checked;
+            this._controlValueAccessorChangeFn(this._checked);
+            this.change.emit({ checked: this.checked, value: this.value });
          }
       }
    }
 
-   handleChange(): void {
-      this.updateValues();
-      this.change.emit({ checked: this.checked, value: this.value });
+   handleChange($event): void {
+      $event.stopPropagation();
    }
 
    writeValue(value: any): void {
-      if (this.checkValueExists(value)) {
-         this.checked = true;
-         this._changeDetectorRef.markForCheck();
-      }
-   }
-
-   checkValueExists(values: any): boolean {
-
-      if (values instanceof Array) {
-         if (values.indexOf(this.value) > -1) {
-            return true;
-         }
-      } else {
-         if (values === this.value) {
-            return true;
-         }
-      }
-
-      this._values = values;
-
-      return false;
-   }
-
-   updateValues(): void {
-
-      if (this._values instanceof Array) {
-         if (this.checked) {
-            this._values.push(this.value);
-         } else {
-            let index = this._values.indexOf(this.value);
-            this._values.splice(index, 1);
-         }
-      } else {
-         if (this.checked) {
-            this._values = this.value;
-         } else {
-            this._values = undefined;
-         }
-      }
-
-      this._controlValueAccessorChangeFn(this._values);
-
+      this._checked = value;
    }
 
    registerOnChange(fn: (value: any) => void): void {
