@@ -18,7 +18,7 @@ class TestComponent {
    @Input() placement: string = 'top';
 }
 
-fdescribe('StPopComponent', () => {
+describe('StPopComponent', () => {
 
    let component: TestComponent;
    let fixture: ComponentFixture<TestComponent>;
