@@ -1,0 +1,247 @@
+import {
+   AfterViewInit,
+   ChangeDetectionStrategy,
+   ChangeDetectorRef,
+   Component,
+   ElementRef,
+   EventEmitter,
+   Input,
+   OnChanges,
+   OnDestroy,
+   OnInit,
+   Output,
+   Renderer,
+   ViewChild,
+   HostListener
+} from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+
+import { EventWindowManager } from '../utils/event-window-manager';
+
+import { StDropDownMenuGroup, StDropDownMenuItem } from '../st-dropdown-menu/st-dropdown-menu.interface';
+
+@Component({
+   selector: 'st-dropdown',
+   template: `
+     <div class="sth-dropdown-container" [style.width]="width + 'px'">
+        <button tabindex="0" [style.width]="width + 'px'" [attr.aria-expanded]="isActive" [attr.id]="qaTag + 'button'" aria-haspopup="true"
+           class="button sth-dropdown-button" [ngClass]="themeClass" #buttonId (click)="onClickEvent($event)" [disabled]="disabled">
+              <span>{{button}}</span>
+              <i class="icon-arrow4_down"></i>
+        </button>
+        <div class="sth-dropdown-menu menu" [ngClass]="themeClass" [style.minWidth]='widthMenu' #menuId>
+           <st-dropdown-menu [items]="items" [attr.id]="qaTag + 'menu'" (change)="changeOption($event)" [ngClass]="themeClass" [active]="isActive">
+           </st-dropdown-menu>
+        </div>
+     </div>
+   `,
+   styles: [`
+     .sth-dropdown-container {
+       position: relative; }
+       .sth-dropdown-container .button {
+         cursor: pointer;
+         padding: 0 30px 0 11px;
+         line-height: 12px;
+         height: 35px;
+         display: block;
+         text-align: left;
+         position: relative;
+         outline: 0;
+         width: 100%; }
+         .sth-dropdown-container .button span {
+           white-space: nowrap;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           word-wrap: break-word;
+           display: inline-block;
+           width: 100%;
+           padding: 11px 0; }
+         .sth-dropdown-container .button i {
+           padding-left: 20px;
+           position: absolute;
+           top: 50%;
+           margin-top: -7px;
+           right: 11px;
+           float: right; }
+         .sth-dropdown-container .button:disabled {
+           opacity: 0.5; }
+       .sth-dropdown-container .menu {
+         position: absolute;
+         z-index: 1000;
+         width: inherit;
+         top: 0;
+         left: 0; }
+   `],
+   changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class StDropdownComponent extends EventWindowManager implements AfterViewInit, OnDestroy, OnInit, OnChanges {
+
+   @Input() button: string;
+   @Input() active: boolean;
+   @Input() items: Array<StDropDownMenuItem | StDropDownMenuGroup>;
+   @Input() default: boolean;
+   @Input() firstSelected: boolean;
+   @Input() disabled: boolean;
+   @Input() width: string;
+   @Input() qaTag: string;
+   @Input() themeClass: string;
+   @Output() click: EventEmitter<boolean> = new EventEmitter<boolean>();
+   @Output() change: EventEmitter<Object> = new EventEmitter<Object>();
+   @ViewChild('buttonId') buttonElement: ElementRef;
+   @ViewChild('menuId') menuElement: ElementRef;
+
+   public widthMenu: string;
+
+   constructor(
+      private renderer: Renderer,
+      private cd: ChangeDetectorRef,
+      @ViewChild('buttonId') buttonElement: ElementRef
+   ) {
+      super(renderer, cd, buttonElement);
+   }
+
+   ngAfterViewInit(): void {
+      this.updateWidth();
+   }
+
+   updateWidth(): void {
+      setTimeout(() => {
+         this.widthMenu = this.buttonElement.nativeElement.offsetWidth + 'px';
+         this.cd.markForCheck();
+      });
+   }
+
+   ngOnInit(): void {
+      if (undefined === this.items) {
+         throw new Error('Attribute items is required');
+      }
+
+      this.checkFirstSelected();
+      this.findSelected();
+   }
+
+   ngOnChanges(values: any): void {
+      if (values.items) {
+         this.checkFirstSelected();
+         this.findSelected();
+         this.updateWidth();
+      }
+   }
+
+   ngOnDestroy(): void {
+      this.closeElement();
+   }
+
+   changeOption(item: StDropDownMenuItem): void {
+      this.active = !this.active;
+      this.updateSelected(item);
+
+      if (!this.default)
+         this.button = item.label;
+      this.change.emit(item);
+      this.closeElement();
+   }
+
+   onClickEvent(event: MouseEvent): void {
+      this.openElement();
+      this.fixPosition();
+      this.click.emit(true);
+   }
+
+   @HostListener('window:scroll')
+   @HostListener('document:keydown', ['$event'])
+   public hideMenu(event?: KeyboardEvent): void {
+      if (event && (event.keyCode && event.keyCode !== 27 || event.key && event.key !== 'Escape')) {
+         return;
+      }
+      this.closeElement();
+   }
+
+   private fixPosition(): void {
+      let size: ClientRect = (this.buttonElement.nativeElement as HTMLButtonElement).getBoundingClientRect();
+      let element: HTMLElement = this.menuElement.nativeElement;
+      element.style.position = 'fixed';
+      element.style.left = `${size.left}px`;
+      element.style.top = `${size.top}px`;
+   }
+
+   private findSelected(): void {
+      if (this.isStDropdownItem(this.items)) {
+         let item = this.items.find((object) => object.selected === true);
+
+         if (item) {
+            this.button = item.label;
+            this.cd.markForCheck();
+         }
+      } else if (this.items && this.items.length > 0) {
+
+         let items = this.items.map((i: StDropDownMenuGroup) => {
+            return i.items.find((object) => object.selected === true);
+         }).filter((object) => object !== undefined);
+
+         if (items.length > 0) {
+            this.button = items[0].label;
+            this.cd.markForCheck();
+         }
+      }
+   }
+
+   private isStDropdownItem(items: Array<StDropDownMenuItem | StDropDownMenuGroup>): items is StDropDownMenuItem[] {
+      if (items && items.length > 0) {
+         return (<StDropDownMenuGroup[]>items)[0].items === undefined;
+      }
+   }
+
+   private updateSelected(item?: StDropDownMenuItem): void {
+
+      if (this.isStDropdownItem(this.items)) {
+         let itemSelected = this.items.find((object) => object.selected === true);
+
+         if (itemSelected) {
+            itemSelected.selected = false;
+         }
+
+         if (item) {
+            let element = this.items.find((i) => i === item);
+
+            if (element)
+               element.selected = true;
+         }
+      } else if (this.items && this.items.length > 0) {
+
+         this.items.map((i: StDropDownMenuGroup) => {
+            let itemSelected = i.items.find((object) => object.selected === true);
+
+            if (itemSelected) {
+               itemSelected.selected = false;
+            }
+
+            if (item) {
+               let element = i.items.find((i) => i === item);
+
+               if (element)
+                  element.selected = true;
+            }
+
+         })
+      }
+
+   }
+
+   private checkFirstSelected(): void {
+
+      if (this.firstSelected) {
+         if (this.isStDropdownItem(this.items)) {
+            this.updateSelected();
+            this.items[0].selected = true;
+         } else if (this.items && this.items.length > 0) {
+
+            this.updateSelected();
+            this.items.map((i: StDropDownMenuGroup) => {
+               i.items[0].selected = true;
+            });
+         }
+      }
+   }
+}
