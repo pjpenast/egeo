@@ -30,5 +30,6 @@ export class StBreadcrumbsDemoComponent {
 
    outputEmitter($event: any, type: String): void {
       this.output = type + $event;
+      console.log(this.output);
    }
 }

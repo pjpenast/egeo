@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 export interface MenuOption {
-  route: string;
-  name: string;
+   route: string;
+   name: string;
 }
 
 export const OPTIONS: MenuOption[] = [
-  { route: 'alerts-demo', name: 'Alerts' },
-  { route: 'dropdown-demo', name: 'Dropdown' },
-  { route: 'dropdown-menu-demo', name: 'Dropdown Menu' },
-  { route: 'help-demo', name: 'help' },
-  { route: 'info-box-demo', name: 'info-box' },
-  { route: 'item-list-demo', name: 'item-list' },
-  { route: 'main', name: 'main' },
-  { route: 'search-demo', name: 'Search' },
-  { route: 'select-demo', name: 'Select' },
-  { route: 'switch-demo', name: 'Switch' },
-  { route: 'tip-demo', name: 'tip' },
-  { route: 'tooltip-demo', name: 'Tooltip' },
-  { route: 'tree-demo', name: 'Tree' },
-  { route: 'two-list-selection-demo', name: 'Two List Selection' },
-  { route: 'breadcrumbs', name: 'Breadcrumbs' }
+   { route: 'alerts-demo', name: 'Alerts' },
+   { route: 'dropdown-demo', name: 'Dropdown' },
+   { route: 'dropdown-menu-demo', name: 'Dropdown Menu' },
+   { route: 'help-demo', name: 'help' },
+   { route: 'info-box-demo', name: 'info-box' },
+   { route: 'item-list-demo', name: 'item-list' },
+   { route: 'main', name: 'main' },
+   { route: 'search-demo', name: 'Search' },
+   { route: 'select-demo', name: 'Select' },
+   { route: 'switch-demo', name: 'Switch' },
+   { route: 'tip-demo', name: 'tip' },
+   { route: 'tooltip-demo', name: 'Tooltip' },
+   { route: 'tree-demo', name: 'Tree' },
+   { route: 'two-list-selection-demo', name: 'Two List Selection' },
+   { route: 'breadcrumbs', name: 'Breadcrumbs' }
 ];

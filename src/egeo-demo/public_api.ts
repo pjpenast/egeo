@@ -16,10 +16,10 @@
 
 export { StAlertsDemoModule } from './st-alert-demo/st-alerts-demo.module';
 export {
-  StTwoListSelectionDemoModule
+   StTwoListSelectionDemoModule
 } from './st-two-list-selection-demo/st-two-list-selection-demo.module';
 export { StTooltipDemoModule } from './st-tooltip-demo/st-tooltip-demo.module';
 export { StSwitchDemoModule } from './st-switch-demo/st-switch-demo.module';
 export {
-  StBreadcrumbsDemoModule
+   StBreadcrumbsDemoModule
 } from './st-breadcrumbs-demo/st-breadcrumbs-demo.module';
