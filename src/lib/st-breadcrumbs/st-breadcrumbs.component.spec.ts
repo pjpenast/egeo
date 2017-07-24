@@ -61,15 +61,15 @@ describe('[BreadCrumbsComponent]', () => {
       });
 
       it('And user clicks on an element, component emits the element position', () => {
-         spyOn(component.changeOption, 'emit');
+         spyOn(component.select, 'emit');
          component.onSelect(2);
-         expect(component.changeOption.emit).toHaveBeenCalledWith(2);
+         expect(component.select.emit).toHaveBeenCalledWith(2);
       });
 
       it('If user clicks on the active element, nothing happens', () => {
          component.onSelect(4);
-         spyOn(component.changeOption, 'emit');
-         expect(component.changeOption.emit).not.toHaveBeenCalled();
+         spyOn(component.select, 'emit');
+         expect(component.select.emit).not.toHaveBeenCalled();
       });
    });
 
@@ -87,9 +87,9 @@ describe('[BreadCrumbsComponent]', () => {
       });
 
       it('if user clicks on an element displayed after dots, component emits the real position of element', () => {
-         spyOn(component.changeOption, 'emit');
+         spyOn(component.select, 'emit');
          component.onSelect(3);
-         expect(component.changeOption.emit).toHaveBeenCalledWith(7);
+         expect(component.select.emit).toHaveBeenCalledWith(3);
       });
    });
 });
