@@ -5,11 +5,13 @@
 **Fixed bugs:**
 
 * st-two-list-selection: Fix when list is empty, height not showing correctly
+* st-breadcrumbs: Add component st-breadcrumbs item, add Ng-Content option
 
 **Breaking changes:**
 
 * st-combobox: Renamed to st-select
 * st-search: Remove searchOnlyOnClick and hasClearButton parameters
+* st-breadcrumbs: Rename output event changeOption to select
 
 ## 2.5.0 (July 13, 2017)
 

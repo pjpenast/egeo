@@ -15,9 +15,19 @@
     limitations under the License.
 
 -->
-<ul class="st-breadcrumbs">
-   <li class="st-breadcrumbs__item sth-breadcrumbs__item" *ngFor="let el of generateCrumbs(); let last = last; let i = index;" [ngClass]="{'last': last}" >
-      <span class="st-breadcrumbs__item--text sth-breadcrumbs__item--text" (click)="onSelect(i)" [attr.id]="qaTag + '-' + i">{{el}}</span>
-      <span class="st-breadcrumbs__item--arrow sth-breadcrumbs__item--arrow" >></span>
-   </li>
-</ul>
+<st-breadcrumbs>
+   <st-breadcrumbs-item>Example 1</st-breadcrumbs-item>
+   <st-breadcrumbs-item [active]="true">Example 2</st-breadcrumbs-item>
+</st-breadcrumbs>
+
+
+<st-breadcrumbs [options]="options" (select)="outputEmitter($event, 'Change event')">
+
+</st-breadcrumbs>
+
+
+
+<div class="output">
+   {{output}}
+
+</div>
