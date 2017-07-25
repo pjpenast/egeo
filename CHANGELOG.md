@@ -5,7 +5,6 @@
 **Fixed bugs:**
 
 * st-two-list-selection: Fix when list is empty, height not showing correctly
-* st-breadcrumbs: Add component st-breadcrumbs item, add Ng-Content option
 
 **Breaking changes:**
 
@@ -15,6 +14,7 @@
 
 **New features:**
 * st-toggle-buttons: Add an optional id to the interface
+* st-breadcrumbs: Add component st-breadcrumbs item, add Ng-Content option
 
 ## 2.5.0 (July 13, 2017)
 
