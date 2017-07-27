@@ -33,5 +33,6 @@ export const OPTIONS: MenuOption[] = [
    { route: 'tooltip-demo', name: 'Tooltip' },
    { route: 'tree-demo', name: 'Tree' },
    { route: 'two-list-selection-demo', name: 'Two List Selection' },
-   { route: 'breadcrumbs', name: 'Breadcrumbs' }
+   { route: 'breadcrumbs', name: 'Breadcrumbs' },
+   { route: 'input', name: 'Input' }
 ];

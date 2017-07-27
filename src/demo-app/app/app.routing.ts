@@ -72,6 +72,10 @@ export const routes: Routes = [
          {
             path: 'breadcrumbs',
             loadChildren: '@stratio/egeo-demo#StBreadcrumbsDemoModule'
+         },
+         {
+            path: 'input',
+            loadChildren: '@stratio/egeo-demo#StInputDemoModule'
          }
       ]
    }

@@ -18,36 +18,49 @@ import {
    ChangeDetectionStrategy,
    ChangeDetectorRef,
    Component,
+   EventEmitter,
    forwardRef,
    Input,
    OnChanges,
    OnDestroy,
    OnInit,
+   Output,
    SimpleChange,
    SimpleChanges,
    ViewChildren
 } from '@angular/core';
 import {
-   ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, Validators,
+   ControlValueAccessor,
+   FormControl,
+   NG_VALIDATORS,
+   NG_VALUE_ACCESSOR,
+   Validators,
    ValidatorFn
 } from '@angular/forms';
-import {Subscription} from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
-import {StInputError} from './st-input.error.model';
+import { StInputError } from './st-input.error.model';
 
 @Component({
    selector: 'st-input',
    templateUrl: './st-input.component.html',
    styleUrls: ['./st-input.component.scss'],
    providers: [
-      {provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => StInputComponent), multi: true},
-      {provide: NG_VALIDATORS, useExisting: forwardRef(() => StInputComponent), multi: true}
+      {
+         provide: NG_VALUE_ACCESSOR,
+         useExisting: forwardRef(() => StInputComponent),
+         multi: true
+      },
+      {
+         provide: NG_VALIDATORS,
+         useExisting: forwardRef(() => StInputComponent),
+         multi: true
+      }
    ],
    changeDetection: ChangeDetectionStrategy.OnPush
 })
-
-export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit, OnDestroy {
-
+export class StInputComponent
+   implements ControlValueAccessor, OnChanges, OnInit, OnDestroy {
    @Input() placeholder: string = '';
    @Input() name: string = '';
    @Input() label: string = '';
@@ -61,6 +74,16 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
    @Input() max: number;
    @Input() isFocused: boolean = false;
    @Input() readonly: boolean = false;
+   @Input()
+   get value(): any {
+      return this._value;
+   }
+
+   set value(value: any) {
+      this._value = value;
+   }
+
+   @Output() change: EventEmitter<any> = new EventEmitter<any>();
 
    @ViewChildren('input') vc: any;
 
@@ -72,18 +95,20 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
    private sub: Subscription;
    private valueChangeSub: Subscription;
    private internalInputModel: any = '';
+   private _value: any;
 
-   constructor(private _cd: ChangeDetectorRef) { }
+   constructor(private _cd: ChangeDetectorRef) {}
 
-   onChange = (_: any) => { };
-   onTouched = () => { };
-
+   onChange = (_: any) => {};
+   onTouched = () => {};
 
    validate(control: FormControl): any {
       if (this.sub) {
          this.sub.unsubscribe();
       }
-      this.sub = control.statusChanges.subscribe(() => this.checkErrors(control));
+      this.sub = control.statusChanges.subscribe(() =>
+         this.checkErrors(control)
+      );
    }
 
    ngOnChanges(change: any): void {
@@ -95,7 +120,9 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
 
    ngOnInit(): void {
       this.internalControl = new FormControl(this.internalInputModel);
-      this.valueChangeSub = this.internalControl.valueChanges.subscribe((value) => this.onChange(value));
+      this.valueChangeSub = this.internalControl.valueChanges.subscribe(value =>
+         this.onChange(value)
+      );
    }
 
    ngAfterViewInit(): void {
@@ -132,21 +159,36 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
 
    setDisabledState(disable: boolean): void {
       this.isDisabled = disable;
-      if (this.isDisabled && this.internalControl && this.internalControl.enabled) {
+      if (
+         this.isDisabled &&
+         this.internalControl &&
+         this.internalControl.enabled
+      ) {
          this.internalControl.disable();
-      } else if (!this.isDisabled && this.internalControl && this.internalControl.disabled) {
+      } else if (
+         !this.isDisabled &&
+         this.internalControl &&
+         this.internalControl.disabled
+      ) {
          this.internalControl.enable();
       }
       this._cd.markForCheck();
    }
 
    showError(): boolean {
-      return this.errorMessage !== undefined && (!this.internalControl.pristine || this.forceValidations) && !this.focus && !this.isDisabled;
+      return (
+         this.errorMessage !== undefined &&
+         (!this.internalControl.pristine || this.forceValidations) &&
+         !this.focus &&
+         !this.isDisabled
+      );
    }
 
    /** Style functions */
    getBarType(): string {
-      return this.showError() ? 'st-input-error-bar sth-input-error-bar' : 'st-input-normal-bar sth-input-normal-bar';
+      return this.showError()
+         ? 'st-input-error-bar sth-input-error-bar'
+         : 'st-input-normal-bar sth-input-normal-bar';
    }
 
    onFocus(event: Event): void {
@@ -155,6 +197,13 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
 
    onFocusOut(event: Event): void {
       this.focus = false;
+   }
+
+   onChangeEvent(event: Event): void {
+      this._value = this.vc.first.nativeElement.value;
+      this.change.emit(this.value);
+      event.stopPropagation();
+      event.preventDefault();
    }
 
    // When status change call this function to check if have errors
@@ -197,6 +246,4 @@ export class StInputComponent implements ControlValueAccessor, OnChanges, OnInit
       }
       return '';
    }
-
-
 }
