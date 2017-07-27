@@ -13,13 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { Component, ElementRef, OnInit, Input, ViewEncapsulation } from '@angular/core';
-import Popper from 'popper.js';
+import {
+   Component,
+   ElementRef,
+   OnInit,
+   Input,
+   ViewEncapsulation
+} from '@angular/core';
+import Popper from 'popper.js/dist/umd/popper.js';
 
-export type PopperPlacement = 'top' | 'top-start' | 'top-end' |
-   'right' | 'right-start' | 'right-end' |
-   'bottom' | 'bottom-start' | 'bottom-end' |
-   'left' | 'left-start' | 'left-end';
+export type PopperPlacement =
+   | 'top'
+   | 'top-start'
+   | 'top-end'
+   | 'right'
+   | 'right-start'
+   | 'right-end'
+   | 'bottom'
+   | 'bottom-start'
+   | 'bottom-end'
+   | 'left'
+   | 'left-start'
+   | 'left-end';
 
 @Component({
    selector: 'st-pop',
@@ -27,24 +42,23 @@ export type PopperPlacement = 'top' | 'top-start' | 'top-end' |
    templateUrl: './st-pop.component.html'
 })
 export class StPopComponent implements OnInit {
-
    @Input() placement: PopperPlacement = 'left';
    @Input() hidden: boolean = true;
    @Input() gpuAcceleration: boolean = true;
 
    private popper: any;
 
-   constructor(private el: ElementRef) { }
+   constructor(private el: ElementRef) {}
 
    ngOnInit(): void {
       let options: Popper.PopperOptions = {
-            placement: this.placement,
-            removeOnDestroy: true,
-            modifiers: {
-               applyStyle: {
-                  gpuAcceleration: this.gpuAcceleration
-               }
+         placement: this.placement,
+         removeOnDestroy: true,
+         modifiers: {
+            applyStyle: {
+               gpuAcceleration: this.gpuAcceleration
             }
+         }
       };
 
       this.popper = new Popper(
@@ -52,7 +66,5 @@ export class StPopComponent implements OnInit {
          this.el.nativeElement.querySelector('[pop-content]'),
          options
       );
-
    }
-
 }
