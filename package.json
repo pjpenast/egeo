@@ -5,7 +5,7 @@
    "author": "Stratio",
    "scripts": {
       "start:dev:hmr": "npm run start -- --hot --inline",
-      "start": "cross-env NODE_ENV=development webpack-dev-server --progress --profile --watch --content-base ./",
+      "start": "cross-env NODE_ENV=development webpack-dev-server --port=8000 --progress --profile --watch --content-base ./",
       "release": "gulp publish",
       "build": "gulp aot:build",
       "build:web:aot": "gulp aot:build",
@@ -120,6 +120,7 @@
       "ts-node": "3.2.0",
       "tsconfig-paths": "2.2.0",
       "tslint": "5.5.0",
+      "tslint-config-prettier": "^1.1.0",
       "typescript": "2.3.4",
       "uglify-js": "2.8.22",
       "webpack": "3.0.0",

@@ -20,7 +20,7 @@ import {
    Input,
    ViewEncapsulation
 } from '@angular/core';
-import Popper from 'popper.js/dist/umd/popper.js';
+import Popper from 'popper.js';
 
 export type PopperPlacement =
    | 'top'
