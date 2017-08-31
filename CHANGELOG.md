@@ -6,7 +6,7 @@
 
 * st-tree: Fix Failed to insert St-Tree Module provider missing
 * st-tree: Fix selected from elements
-
+* st-tree: Fix dbblick to elements for expand
 
 ## 3.0.0 (August 18, 2017)
 
