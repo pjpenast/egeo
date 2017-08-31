@@ -78,7 +78,14 @@ export class StTreeComponent implements OnInit, OnChanges {
    /** @Input {string} [qaTag=''] Id value for qa test */
    @Input() qaTag: string = '';
    /** @Input {StNodeTree} [^tree] Tree root node */
-   @Input() @StRequired() tree: StNodeTree;
+   @Input() @StRequired()
+   get tree(): StNodeTree {
+      return this._tree;
+   }
+
+   set tree(tree: StNodeTree) {
+      this._tree = tree;
+   }
    /** @Input {number} [maxLevel] Max level to show. From this level the tree does not expand more */
    @Input() maxLevel: number;
    /** @Input {boolean} [isRoot=true] TRUE: the first node is root and not show dots, FALSE: the first node is not root and
@@ -104,6 +111,8 @@ export class StTreeComponent implements OnInit, OnChanges {
    public internalTree: StNodeTree;
    public fatherNode: number[] = [];
    public selectedPath: string = '';
+
+   private _tree: StNodeTree;
 
    constructor(
       private _resolver: EgeoResolveService,
@@ -131,6 +140,7 @@ export class StTreeComponent implements OnInit, OnChanges {
    }
 
    onSelectNode(nodeChange: StNodeTreeChange): void {
+      this.nodeSetSelected(this._tree);
       this.selectNode.emit(nodeChange);
       this.selectedPath = nodeChange.path;
       this._cd.markForCheck();
@@ -138,6 +148,16 @@ export class StTreeComponent implements OnInit, OnChanges {
 
    onInternalNodeUpdate(update: StNodeTreeChange): void {
       _set(this.internalTree, update.path, update.node);
+   }
+
+   private nodeSetSelected(node: StNodeTree): void {
+      if (node.selected) {
+         node.selected = false;
+      }
+
+      if (node.children) {
+         node.children.map(i => this.nodeSetSelected(i));
+      }
    }
 
    private checkTreeExpand(): void {

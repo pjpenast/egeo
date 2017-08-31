@@ -209,7 +209,7 @@ describe('StTreeComponent', () => {
          comp.node = { name: 'testNode', icon: '', expanded: false };
          fixture.detectChanges();
 
-         let expectedResult = { name: 'testNode', icon: '', expanded: true, selected: true };
+         let expectedResult = { name: 'testNode', icon: '', expanded: false, selected: true };
 
          comp.onClickForSelect(new Event('click'));
          expect(onToogleFunction).toHaveBeenCalled();
@@ -230,7 +230,7 @@ describe('StTreeComponent', () => {
          comp.node = { name: 'testNode', icon: '', expanded: false };
          fixture.detectChanges();
 
-         let expectedResult = { name: 'testNode', icon: '', expanded: true, selected: true };
+         let expectedResult = { name: 'testNode', icon: '', expanded: false, selected: true };
 
          comp.onClickForSelect(new Event('click'));
          expect(onToogleFunction).toHaveBeenCalled();
@@ -251,7 +251,7 @@ describe('StTreeComponent', () => {
          comp.node = { name: 'testNode', icon: '', expanded: false };
          fixture.detectChanges();
 
-         let expectedResult = { name: 'testNode', icon: '', expanded: true, selected: true };
+         let expectedResult = { name: 'testNode', icon: '', expanded: false, selected: true };
 
          comp.onClickForSelect(new Event('click'));
          expect(onToogleFunction).toHaveBeenCalled();
@@ -272,8 +272,8 @@ describe('StTreeComponent', () => {
          fixture.detectChanges();
 
          expect(comp.node.name).toEqual('test');
-         let newNode: StNodeTree = {name: 'new value', icon: ''};
-         subject.next({node: newNode, path: 'children[1]'});
+         let newNode: StNodeTree = { name: 'new value', icon: '' };
+         subject.next({ node: newNode, path: 'children[1]' });
          fixture.detectChanges();
 
          expect(comp.node.name).toEqual('new value');
@@ -289,8 +289,8 @@ describe('StTreeComponent', () => {
          fixture.detectChanges();
 
          expect(comp.node.name).toEqual('test');
-         let newNode: StNodeTree = {name: 'new value', icon: ''};
-         subject.next({node: newNode, path: 'children[5]'});
+         let newNode: StNodeTree = { name: 'new value', icon: '' };
+         subject.next({ node: newNode, path: 'children[5]' });
          fixture.detectChanges();
 
          expect(comp.node.name).toEqual('test');
@@ -309,11 +309,11 @@ describe('StTreeComponent', () => {
          expect(comp.node.name).toEqual('test');
 
          comp.changeStreamNotification = subject2;
-         comp.ngOnChanges({changeStreamNotification: new SimpleChange(subject1, subject2, true)});
+         comp.ngOnChanges({ changeStreamNotification: new SimpleChange(subject1, subject2, true) });
          fixture.detectChanges();
 
-         let newNode: StNodeTree = {name: 'new value', icon: ''};
-         subject2.next({node: newNode, path: 'children[1]'});
+         let newNode: StNodeTree = { name: 'new value', icon: '' };
+         subject2.next({ node: newNode, path: 'children[1]' });
          fixture.detectChanges();
 
          expect(comp.node.name).toEqual('new value');
