@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1 (upcoming)
+
+**Fixed bugs:**
+
+* st-tree: Fix Failed to insert St-Tree Module provider missing
+* st-tree: Fix selected from elements
+
+
 ## 3.0.0 (August 18, 2017)
 
 **Fixed bugs:**
