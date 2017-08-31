@@ -25,7 +25,6 @@ import {
    ChangeDetectorRef
 } from '@angular/core';
 import {
-   cloneDeep as _cloneDeep,
    get as _get,
    set as _set,
    isEqual as _isEqual
@@ -108,7 +107,6 @@ export class StTreeComponent implements OnInit, OnChanges {
    /** @Output {Event} [navigatePrevious] Notify click over three dots to indicate that user wants to go up in tree structrure */
    @Output() navigatePrevious: EventEmitter<Event> = new EventEmitter<Event>();
 
-   public internalTree: StNodeTree;
    public fatherNode: number[] = [];
    public selectedPath: string = '';
 
@@ -120,14 +118,13 @@ export class StTreeComponent implements OnInit, OnChanges {
    ) { }
 
    ngOnInit(): void {
-      this.internalTree = this.createTreeCopy(this.tree);
       this.checkTreeExpand();
    }
 
    ngOnChanges(changes: SimpleChanges): void {
       if (changes && changes.tree && !changes.tree.firstChange && !_isEqual(changes.tree.currentValue, changes.tree.previousValue)) {
-         if (!_isEqual(this.internalTree, changes.tree.currentValue)) {
-            this.internalTree = this.createTreeCopy(changes.tree.currentValue);
+         if (!_isEqual(this._tree, changes.tree.currentValue)) {
+            this._tree = changes.tree.currentValue;
             this.checkTreeExpand();
             this._cd.markForCheck();
          }
@@ -147,7 +144,7 @@ export class StTreeComponent implements OnInit, OnChanges {
    }
 
    onInternalNodeUpdate(update: StNodeTreeChange): void {
-      _set(this.internalTree, update.path, update.node);
+      _set(this._tree, update.path, update.node);
    }
 
    private nodeSetSelected(node: StNodeTree): void {
@@ -162,7 +159,7 @@ export class StTreeComponent implements OnInit, OnChanges {
 
    private checkTreeExpand(): void {
       if (this.expandFatherBranch) {
-         let paths: string[] = this._resolver.getKeys(this.internalTree, 'expanded', true).map(resolveKey => resolveKey.path);
+         let paths: string[] = this._resolver.getKeys(this._tree, 'expanded', true).map(resolveKey => resolveKey.path);
          this.expandBranchFromNode(paths);
       }
    }
@@ -171,9 +168,9 @@ export class StTreeComponent implements OnInit, OnChanges {
       if (nodeChange && nodeChange.node && !nodeChange.node.expanded && this.collapseChildsBranch) {
          let node: StNodeTree;
          if (nodeChange.path.length > 0) {
-            node = _get<StNodeTree>(this.internalTree, nodeChange.path, undefined);
+            node = _get<StNodeTree>(this._tree, nodeChange.path, undefined);
          } else {
-            node = this.internalTree;
+            node = this._tree;
          }
          let paths: string[] = this._resolver.getKeys(node, 'expanded', true).map(resolveKey => resolveKey.path);
          let actualNode: StNodeTree;
@@ -189,11 +186,11 @@ export class StTreeComponent implements OnInit, OnChanges {
    private expandBranchFromNode(path: string[]): void {
       path.forEach(pathForExpand => {
          let i: number = 1;
-         let fatherNode: StNodeTreeChange = this.getFatherNode(this.internalTree, pathForExpand, i);
+         let fatherNode: StNodeTreeChange = this.getFatherNode(this._tree, pathForExpand, i);
          while (fatherNode && !fatherNode.node.expanded) {
             fatherNode.node.expanded = true;
             this.toogleNode.emit(fatherNode);
-            fatherNode = this.getFatherNode(this.internalTree, pathForExpand, ++i);
+            fatherNode = this.getFatherNode(this._tree, pathForExpand, ++i);
          }
       });
    }
@@ -205,13 +202,10 @@ export class StTreeComponent implements OnInit, OnChanges {
          if (pathParts.length === 0) {
             return { node: tree, path: '' };
          } else if (pathParts.length > 0) {
-            return { node: _get<StNodeTree>(this.internalTree, pathParts.join('.'), undefined), path: pathParts.join('.') };
+            return { node: _get<StNodeTree>(this._tree, pathParts.join('.'), undefined), path: pathParts.join('.') };
          }
       }
       return undefined;
    }
 
-   private createTreeCopy(original: StNodeTree): StNodeTree {
-      return _cloneDeep(original);
-   }
 }

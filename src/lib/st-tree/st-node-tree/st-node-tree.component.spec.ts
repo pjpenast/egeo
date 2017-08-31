@@ -200,9 +200,7 @@ describe('StTreeComponent', () => {
 
 
       it('should emit when click on select a node for a internal node', () => {
-         let onToogleFunction = jasmine.createSpy('response');
          let onSelectFunction = jasmine.createSpy('response');
-         comp.toogleNode.subscribe(onToogleFunction);
          comp.selectNode.subscribe(onSelectFunction);
          comp.father = [0, 1];
          comp.pos = 4;
@@ -212,18 +210,13 @@ describe('StTreeComponent', () => {
          let expectedResult = { name: 'testNode', icon: '', expanded: false, selected: true };
 
          comp.onClickForSelect(new Event('click'));
-         expect(onToogleFunction).toHaveBeenCalled();
-         expect(onToogleFunction).toHaveBeenCalledTimes(1);
-         expect(onToogleFunction).toHaveBeenCalledWith({ node: expectedResult, path: 'children[1].children[4]' });
          expect(onSelectFunction).toHaveBeenCalled();
          expect(onSelectFunction).toHaveBeenCalledTimes(1);
          expect(onSelectFunction).toHaveBeenCalledWith({ node: expectedResult, path: 'children[1].children[4]' });
       });
 
       it('should emit when click on select a node for a child from root node', () => {
-         let onToogleFunction = jasmine.createSpy('response');
          let onSelectFunction = jasmine.createSpy('response');
-         comp.toogleNode.subscribe(onToogleFunction);
          comp.selectNode.subscribe(onSelectFunction);
          comp.father = [0];
          comp.pos = 4;
@@ -233,18 +226,13 @@ describe('StTreeComponent', () => {
          let expectedResult = { name: 'testNode', icon: '', expanded: false, selected: true };
 
          comp.onClickForSelect(new Event('click'));
-         expect(onToogleFunction).toHaveBeenCalled();
-         expect(onToogleFunction).toHaveBeenCalledTimes(1);
-         expect(onToogleFunction).toHaveBeenCalledWith({ node: expectedResult, path: 'children[4]' });
          expect(onSelectFunction).toHaveBeenCalled();
          expect(onSelectFunction).toHaveBeenCalledTimes(1);
          expect(onSelectFunction).toHaveBeenCalledWith({ node: expectedResult, path: 'children[4]' });
       });
 
       it('should emit when click on select a node for root node', () => {
-         let onToogleFunction = jasmine.createSpy('response');
          let onSelectFunction = jasmine.createSpy('response');
-         comp.toogleNode.subscribe(onToogleFunction);
          comp.selectNode.subscribe(onSelectFunction);
          comp.father = [];
          comp.pos = 0;
@@ -254,9 +242,6 @@ describe('StTreeComponent', () => {
          let expectedResult = { name: 'testNode', icon: '', expanded: false, selected: true };
 
          comp.onClickForSelect(new Event('click'));
-         expect(onToogleFunction).toHaveBeenCalled();
-         expect(onToogleFunction).toHaveBeenCalledTimes(1);
-         expect(onToogleFunction).toHaveBeenCalledWith({ node: expectedResult, path: '' });
          expect(onSelectFunction).toHaveBeenCalled();
          expect(onSelectFunction).toHaveBeenCalledTimes(1);
          expect(onSelectFunction).toHaveBeenCalledWith({ node: expectedResult, path: '' });
